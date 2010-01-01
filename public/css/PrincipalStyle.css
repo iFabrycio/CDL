@@ -1,0 +1,197 @@
+@charset "UTF-8";
+
+body{
+    font-family: 'roboto';
+}
+a{
+    text-decoration-color: white;
+}
+.panell{
+    padding: 10px;
+    width:300px;
+}
+@-moz-keyframes TransitionMenu {
+    from {
+    padding: 30px;
+    width: 120px;
+    }
+
+    to {
+    padding: 30px;
+    width: 150px;
+    }
+}
+
+/* Standard syntax */
+@keyframes TransitionMenu {
+    from {
+    padding: 30px;
+    width: 120px;
+    border-top-color: chartreuse;
+    }
+
+    to {
+    padding: 30px;
+    width: 150px;
+        border-top-color: #40cb00;
+    }
+}
+@-moz-keyframes TransitionMenuReverse {
+    from {
+    padding: 30px;
+    width: 150px;
+        border-top-color: #40cb00
+    }
+
+    to {
+        
+    padding: 30px;
+    width: 120px;
+        border-top-color:chartreuse;
+    }
+}
+
+/* Standard syntax */
+@keyframes TransitionMenuReverse {
+    from {
+    padding: 30px;
+    width: 150px;
+    }
+
+    to {
+    padding: 30px;
+    width: 120px;
+    }
+}
+
+.BoxLogin{
+    
+    border-color: #999;
+    margin-top: 100px;
+}
+
+.MainNav{
+        -webkit-box-shadow: 0px 3px 10px 0px rgba(50, 50, 50, 0.53);
+        -moz-box-shadow:    0px 3px 10px 0px rgba(50, 50, 50, 0.53);
+        box-shadow:         0px 3px 10px 0px rgba(50, 50, 50, 0.53);
+    
+
+}
+
+.SubNav{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color:  chartreuse;
+    
+    margin-top: -23px;
+    -webkit-box-shadow: 0px 3px 10px 0px rgba(50, 50, 50, 0.53);
+    -moz-box-shadow:    0px 3px 10px 0px rgba(50, 50, 50, 0.53);
+    box-shadow:         0px 3px 10px 0px rgba(50, 50, 50, 0.53);
+}
+.Prim{
+   width: 200px;
+    
+}
+.Second{
+    margin-top: -px;
+    width: 100px;
+
+}
+
+.poscentralized{
+  
+  -webkit-display: flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+#footer{
+    width:100%;
+    background-color:  #444;
+    padding:20px;
+    position: fixed;
+    bottom: 0;
+}
+.BoxButton{
+    
+    border-top-width: 10px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-color: chartreuse;
+    border-left-color: #999;
+    border-right-color: #999;
+    border-bottom-color: #999;
+    padding: 30px;
+    width: 120px;
+   outline-offset: none; 
+
+    
+}
+.BoxButton:hover{
+
+    -webkit-animation-name: TransitionMenu; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 0.5s; /* Safari 4.0 - 8.0 */
+    animation-name: TransitionMenu;
+    animation-duration: 0.5;
+
+
+    border-top-width: 10px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-color: #40cb00;
+    border-left-color: #999;
+    border-right-color: #999;
+    border-bottom-color: #999;
+    padding: 30px;
+    width: 150px;
+    text-align: center;
+    
+}
+.BoxButton:not( :hover ){ 
+ -webkit-animation-name: TransitionMenuReverse; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+    animation-name: TransitionMenuReverse;
+    animation-duration: 1;
+
+
+    border-top-width: 10px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-color: chartreuse;
+    border-left-color: #999;
+    border-right-color: #999;
+    border-bottom-color: #999;
+    padding: 30px;
+    text-align:center;
+    
+ }
+
+.align-text{
+   margin:auto;
+   
+}
+.DashBoard{
+    background-color:lightgrey;
+    opacity:
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-width: 0.5px;
+}
+.absolute{
+    position: absolute;
+}
+.positioned{
+    margin-top: 20px;
+}
+.widthed{
+    width:300px;
+    
+}
