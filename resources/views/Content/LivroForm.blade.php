@@ -1,12 +1,8 @@
-@extends('Layout.principal')
-@section('title')
-Cadastrar Livros
-@endsection
+@extends('Layout.principal') @section('title') Cadastrar Livros @endsection @section('content')
 
-@section('content')
 
-<div class="panel panel-default">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+    <!--
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
 
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -24,4 +20,55 @@ Cadastrar Livros
                     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </div>
                     </div>
-@stop
+</div>
+-->
+    <div class="poscentralized" style="margin-top:50px;">
+        <div class="form-group" style="width:500px;">
+            <form class="form-horizontal">
+                <div class="group" align="center">
+                <div class="form-group group1">
+                    <label for="Titulo">Titulo</label>
+                    <input id="Titulo" name="Titulo" class="form-control"/>
+
+                    <label for="Ano">Ano</label>
+                    <input id="Ano" name="Ano" class ="form-control"/>
+
+                    <label for = "FotoCapa">Capa</label>
+                    <input id="Fotocapa" name="FotoCapa" class="form-control"/>
+
+                    <label for="NumeroPaginas">Numero de Páginas</label>
+                    <input id="NumeroPaginas" name="Numeropaginas" class="form-control"/>
+                    
+                    <label for="IdAutor">Autor</label>
+                    <input id="IdAutor" name="IdAutor" class="form-control"/>
+                    
+                    <label for="IdEditora">Editora</label>
+                    <input id="IdEditora" name="IdEditora" class="form-control"/>
+                </div>
+                 
+                <div class="form-group group2">
+                    <label for="CDU">CDU</label>
+                    <input id="CDU" name="CDU" class="form-control">
+
+                    <label for="CDD">CDD</label>
+                    <input id="CDD" name="CDD" class="form-control">
+
+                    <label for="ISBN">ISBN</label>
+                    <input id="ISBN" name="ISBN" class="form-control"/>
+
+                    <label for="NumEdicao">Nº da edição</label>
+                    <input id="NumEdicao" name="NumEdicao" class="form-control"/>
+            
+                    <label for="NumVolume">Volume</label>
+                    <input id="NumVolume" name="NumVolume" class="form-control"/>
+                    
+                    <label for="IdGenero">Genero</label>
+                    <input id="IdGenero" name="IdGenero" class="form-control"/>
+                </div>
+                <input type="submit" class="btn btn-success "value="Concluir"/>
+           </div>
+                    </form>
+        </div>
+    </div>
+        
+    @stop

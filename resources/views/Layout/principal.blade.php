@@ -17,10 +17,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
     <style type="text/css">
-@font-face {
-    font-family: roboto;
-    src: url('{{ public_path('/fonts/Roboto-Thin.ttf') }}');
-}
+
 </style>
           
     <title>CDL - @yield('title')</title>
