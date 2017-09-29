@@ -1,7 +1,7 @@
 + Dropdown do Auth não está funcionando
 + Centralizar o Auth
 - Fazer formulários dos dois botões do sub menu Cadastro
-- Mudar logo do footer
++ Mudar logo do footer
 - Configurar barra de pesquisa para Real Time
 - Configurar botão Listas
 - Fazer lógicas para Reserva

@@ -21,7 +21,7 @@
 </style>
           
     <title>CDL - @yield('title')</title>
-    <script type="text/javascript">
+    <script type="text/javascript">  
         function MenuCadastro() {
             location.href = "/cadastro";
         }
@@ -31,6 +31,7 @@
         function RedirectToFormLivro(){
             location.href="/cadastro/Livro";
         }
+        
         function LogoutMethod(){
             event.preventDefault();
                 document.getElementById('logout-form').submit();
@@ -91,7 +92,7 @@
     @yield('content')
     <footer class="footer navbar">
         <div align="center" id="footer">
-            <img src="hacktown-marca.png" alt="Logo"/>
+            <a href="/RedirectToHT"><img src="/hacktown-marca.png" alt="Logo" class="logo" /></a>
         </div>
     </footer>
 </body>

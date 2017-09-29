@@ -18,7 +18,7 @@ Route::get('/home','MainController@index');
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-
+Route::get('/RedirectToHT','MainController@RedirectToHT');
 
 Route::get('/cadastro','MainController@Submenu');
 Route::get('/cadastro/Aluno','MainController@Aluno');

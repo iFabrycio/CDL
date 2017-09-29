@@ -5,11 +5,15 @@ use App\Aluno;
 
 use Request;
 use App\Http\Requests\AlunoRequest;
+use Redirect;
 
 class MainController extends Controller
 {
     public function index(){
         return view('Content.menu');
+    }
+    public function RedirectToHT(){
+        return Redirect::to('http://hacktown.petrolina.ifsertao-pe.edu.br');
     }
     public function SubMenu(){
     	return view('Content.SubMenu');
