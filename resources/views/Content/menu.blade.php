@@ -29,18 +29,6 @@
 
         </figure>
     </div>
-   <!-- 
-    <div class="BoxButton" style="border-right:none;">
-        <figure class="figure">
-            <div class="poscentralized">
-                <i class="fa fa-hand-o-left fa-5x"></i>
-
-                <figcaption class="align-text" align="center">
-                    Devolução
-                </figcaption>
-            </div>
-        </figure>
-    </div>-->
     <div class="BoxButton" style="border-right:none;">
         <figure class="figure">
             <div class="poscentralized">
@@ -63,7 +51,7 @@
 
         </figure>
     </div>
-    <div class="BoxButton" style="border-top-right-radius:5px; border-bottom-right-radius:5px; border-left:none;">
+    <div class="BoxButton" onclick="MenuLista()" style="border-top-right-radius:5px; border-bottom-right-radius:5px; border-left:none;">
         <figure class="figure">
             <div class="poscentralized">
                 <i class="fa fa-list-alt fa-5x"></i>

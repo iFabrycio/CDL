@@ -21,17 +21,17 @@
                     <input id="Titulo" name="Titulo" class="form-control"  value="{{    old('Titulo')   }}" />
 
                     <label for="Ano">Ano</label>
-                    <input id="Ano" name="Ano" class="form-control" value="1234"/>
+                    <input id="Ano" name="Ano" class="form-control" value="{{ old('Ano') }}"/>
 
                     <label for = "FotoCapa">Capa</label>
-                    <input id="Fotocapa" name="FotoCapa" class="form-control"  value="Teste" />
+                    <input id="Fotocapa" name="FotoCapa" class="form-control"  value="{{ old('FotoCapa') }}" />
 
                     <label for="NumeroPaginas">Numero de Páginas</label>
                     <input id="NumeroPaginas" name="NumeroPaginas" class="form-control"  value="{{ old('NumeroPaginas') }}" />
                     
                     <label class="form-control-label" for="iAutor">Autor:</label>
                     <select class="form-control selectpicker" name="IdAutor" id="iAutor">
-                        <option>Selecione um Autor</option>
+                        <option value="">Selecione um Autor</option>
                         @foreach ($autores as $autor)
                         <option value="{{ $autor->id }}">{{ $autor->nome }}</option>
                         @endforeach
@@ -40,7 +40,7 @@
                     
                     <label class ="form-control-label" for="iGenero">Genero:</label>
                     <select class="form-control" name="IdGenero" id="iGenero">
-                        <option>Selecione um Genero</option>
+                        <option value="">Selecione um Genero</option>
                     @foreach($genero as $genero)
                         <option value="{{$genero->id}}">{{$genero->nome}}</option>
                         @endforeach
@@ -51,23 +51,23 @@
                  
                 <div class="form-group group2">
                     <label for="CDU">CDU</label>
-                    <input id="CDU" name="CDU" class="form-control"  value="123">
+                    <input id="CDU" name="CDU" class="form-control"  value="{{ old('CDU') }}">
 
                     <label for="CDD">CDD</label>
-                    <input id="CDD" name="CDD" class="form-control"  value="123">
+                    <input id="CDD" name="CDD" class="form-control"  value="{{ old('CDD') }}">
 
                     <label for="ISBN">ISBN</label>
-                    <input id="ISBN" name="ISBN" class="form-control"  value="123"/>
+                    <input id="ISBN" name="ISBN" class="form-control"  value="{{ old('ISBN') }}"/>
 
                     <label for="NumEdicao">Nº da edição</label>
-                    <input id="NumEdicao" name="NumEdicao" class="form-control"  value="12"/>
+                    <input id="NumEdicao" name="NumEdicao" class="form-control"  value="{{ old('NumEdicao') }}"/>
             
                     <label for="NumVolume">Volume</label>
-                    <input id="NumVolume" name="NumVolume" class="form-control"  value="12"/>
+                    <input id="NumVolume" name="NumVolume" class="form-control"  value="{{ old('NumVolume') }}"/>
                     
                        <label class="form-control-label" for="iEditora">Editora:</label>
                     <select class="form-control" name="IdEditora" id="iEditora">
-                        <option>Selecione uma editora</option>
+                        <option value="">Selecione uma editora</option>
                         @foreach ($editora as $editor)
                         <option value="{{ $editor->id }}">{{ $editor->nome }}</option>
                         @endforeach

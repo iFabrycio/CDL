@@ -222,5 +222,19 @@ a{
 .logo{
     width: 10%;
 }
+.sidebar{
+    position: absolute;
+    width: 200px;
+    height: 95%;
+    background-color: #444;
+    color:white;
+}
+.BoxMenu{
+    padding:15px;
+}
+actived, .BoxMenu:hover{
+    color:#444;
+    background-color: chartreuse;
+}
 
 

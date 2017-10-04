@@ -25,11 +25,21 @@
         function MenuCadastro() {
             location.href = "/cadastro";
         }
+        
         function RedirectToFormAluno(){
             location.href = "/cadastro/Aluno";
         }
         function RedirectToFormLivro(){
             location.href="/cadastro/Livro";
+        }
+         function RedirectToListAluno(){
+            location.href = "/lista/Aluno";
+        }
+        function RedirectToListLivro(){
+            location.href="/lista/Livro";
+        }
+        function MenuLista(){
+            location.href = "/lista/menu";
         }
         
         function LogoutMethod(){

@@ -19,11 +19,27 @@ use Session;
 class MainController extends Controller
 {
     public function index(){
-        $livro = Livro::find(1);
-        return view('Content.menu', [
-            'livro' => $livro
-        ]);
+    
+        return view('Content.menu');
     }
+    
+    public function ListaMenu(){
+        return view('Content.ListaMenu');
+    }
+    public function ListaAluno(){
+        $aluno = Aluno::all();
+        return view('Content.ListaAluno',[
+            'aluno'=> $aluno
+        ]);   
+    }
+    public function removeAluno($IdAluno){
+        $aluno =Aluno::find($IdAluno);
+        $aluno ->delete();  
+        return redirect()
+            ->action('MainController@ListaAluno');
+        
+    }
+    
     public function RedirectToHT(){
         return Redirect::to('http://hacktown.petrolina.ifsertao-pe.edu.br');
     }
