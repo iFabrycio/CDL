@@ -25,3 +25,11 @@ Route::get('/cadastro/Aluno','MainController@Aluno');
 Route::post('/cadastro/Aluno/submit','MainController@AlunoSubmit');
 
 Route::get('/cadastro/Livro','MainController@Livro');
+Route::post('/cadastro/Livro/Submit','MainController@LivroSubmit');
+
+/* Rotas de autor*/
+Route::post('/autor/cadastrar', 'MainController@autorCadastrar')->name('autor.cadastrar');
+//Rotas de editora
+Route::post('/editora/cadastrar','MainController@editoraCadastrar')->name('editora.cadastrar');
+//Rotas de genero
+Route::post('/genero/cadastrar','MainController@generoCadastrar')->name('genero.cadastrar');

@@ -1,74 +1,166 @@
 @extends('Layout.principal') @section('title') Cadastrar Livros @endsection @section('content')
 
 
-    <!--
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            Endereço e Contato
-                        </h4>
-                    </div>
-                </a>
-                <div id="collapse2" class="panel-collapse collapse">
-                    <div class="panel-body">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </div>
-                    </div>
+    @foreach ($errors ->all() as $error)
+<div class="poscentralized">
+    <div class="alert alert-danger widthed" align="center">{{$error}}
+    </div>
 </div>
--->
+    @endforeach
+
     <div class="poscentralized" style="margin-top:50px;">
+        
         <div class="form-group" style="width:500px;">
-            <form class="form-horizontal">
+            <form class="form-horizontal" method="post" action="{{ url('/cadastro/Livro/Submit') }}">
+                
+                {{ csrf_field() }}
+                
                 <div class="group" align="center">
                 <div class="form-group group1">
                     <label for="Titulo">Titulo</label>
-                    <input id="Titulo" name="Titulo" class="form-control"/>
+                    <input id="Titulo" name="Titulo" class="form-control"  value="{{    old('Titulo')   }}" />
 
                     <label for="Ano">Ano</label>
-                    <input id="Ano" name="Ano" class ="form-control"/>
+                    <input id="Ano" name="Ano" class="form-control" value="1234"/>
 
                     <label for = "FotoCapa">Capa</label>
-                    <input id="Fotocapa" name="FotoCapa" class="form-control"/>
+                    <input id="Fotocapa" name="FotoCapa" class="form-control"  value="Teste" />
 
                     <label for="NumeroPaginas">Numero de Páginas</label>
-                    <input id="NumeroPaginas" name="Numeropaginas" class="form-control"/>
+                    <input id="NumeroPaginas" name="NumeroPaginas" class="form-control"  value="{{ old('NumeroPaginas') }}" />
                     
-                    <label for="IdAutor">Autor</label>
-                    <input id="IdAutor" name="IdAutor" class="form-control"/>
+                    <label class="form-control-label" for="iAutor">Autor:</label>
+                    <select class="form-control selectpicker" name="IdAutor" id="iAutor">
+                        <option>Selecione um Autor</option>
+                        @foreach ($autores as $autor)
+                        <option value="{{ $autor->id }}">{{ $autor->nome }}</option>
+                        @endforeach
+                        
+                    </select>
                     
-                    <label for="IdEditora">Editora</label>
-                    <input id="IdEditora" name="IdEditora" class="form-control"/>
+                    <label class ="form-control-label" for="iGenero">Genero:</label>
+                    <select class="form-control" name="IdGenero" id="iGenero">
+                        <option>Selecione um Genero</option>
+                    @foreach($genero as $genero)
+                        <option value="{{$genero->id}}">{{$genero->nome}}</option>
+                        @endforeach
+                    </select>
+                    
+                    
                 </div>
                  
                 <div class="form-group group2">
                     <label for="CDU">CDU</label>
-                    <input id="CDU" name="CDU" class="form-control">
+                    <input id="CDU" name="CDU" class="form-control"  value="123">
 
                     <label for="CDD">CDD</label>
-                    <input id="CDD" name="CDD" class="form-control">
+                    <input id="CDD" name="CDD" class="form-control"  value="123">
 
                     <label for="ISBN">ISBN</label>
-                    <input id="ISBN" name="ISBN" class="form-control"/>
+                    <input id="ISBN" name="ISBN" class="form-control"  value="123"/>
 
                     <label for="NumEdicao">Nº da edição</label>
-                    <input id="NumEdicao" name="NumEdicao" class="form-control"/>
+                    <input id="NumEdicao" name="NumEdicao" class="form-control"  value="12"/>
             
                     <label for="NumVolume">Volume</label>
-                    <input id="NumVolume" name="NumVolume" class="form-control"/>
+                    <input id="NumVolume" name="NumVolume" class="form-control"  value="12"/>
                     
-                    <label for="IdGenero">Genero</label>
-                    <input id="IdGenero" name="IdGenero" class="form-control"/>
+                       <label class="form-control-label" for="iEditora">Editora:</label>
+                    <select class="form-control" name="IdEditora" id="iEditora">
+                        <option>Selecione uma editora</option>
+                        @foreach ($editora as $editor)
+                        <option value="{{ $editor->id }}">{{ $editor->nome }}</option>
+                        @endforeach
+                    </select>
+                    
                 </div>
                 <input type="submit" class="btn btn-success "value="Concluir"/>
-           </div>
+                </div>
+            
                     </form>
         </div>
     </div>
+<div class="divider">
+    <hr/>
+</div>
+<div class="container poscentralized">
+    <div class="row">
+        @if (Session::has('mensagem'))
+        <div class="alert alert-success">
+            <a href="#" class="close" aria-label="close" data-dismiss="alert">&times;</a>
+            {{ Session::get('mensagem') }}
+        </div>
+        @endif
+        <div>
+            <section align="center">
+        <div class="withed" style="display:inline-block; margin-right:50px;">            
+            <form class="form-horizontal" method="post" action="{{ route('autor.cadastrar') }}">
+                
+                {{ csrf_field() }}
+                
+                <div class="form-group">
+                    <label class="form-control-label" for="i_nome-autor">
+                        Nome do autor:
+                    </label>
+                    <input required class="form-control" name="nome" value="{{ old('nome') }}" id="i_nome-autor"/>
+                </div>
+                
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit">
+                        <i class="fa fa-save"></i> Cadastrar autor
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <div style="display:inline-block;" class="withed">            
+            <form class="form-horizontal" method="post" action="{{ route('editora.cadastrar') }}">
+                
+                {{ csrf_field() }}
+                
+                <div class="form-group">
+                    <label class="form-control-label" for="i_nome-editora">
+                        Nome da editora:
+                    </label>
+                    <input required class="form-control" name="nome" value="{{ old('nome') }}" id="i_nome-editora"/>
+                </div>
+                
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit">
+                        <i class="fa fa-save"></i> Cadastrar editora
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="withed" style="display:inline-block; margin-left:50px;">            
+            <form class="form-horizontal" method="post" action="{{ route('genero.cadastrar') }}">
+                
+                {{ csrf_field() }}
+                
+                <div class="form-group">
+                    <label class="form-control-label" for="i_nome-genero">
+                        Nome do genero:
+                    </label>
+                    <input required class="form-control" name="nome" value="{{ old('nome') }}" id="i_nome-genero"/>
+                </div>
+                
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit">
+                        <i class="fa fa-save"></i> Cadastrar genero
+                    </button>
+                </div>
+            </form>
+        </div>
+            
+            </section>
+        </div>
+</div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
         
     @stop

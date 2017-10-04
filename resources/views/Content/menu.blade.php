@@ -9,6 +9,8 @@
             <input type="text" class="form-control" placeholder="Procurar Livros" />
             <span class="form-control-feedback glyphicon glyphicon-search"></span>
         </div>
+    </form>
+    
 </div>
 <br/>
 <br/>

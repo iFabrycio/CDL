@@ -1,6 +1,6 @@
 + Dropdown do Auth não está funcionando
 + Centralizar o Auth
-- Fazer formulários dos dois botões do sub menu Cadastro
++ Fazer formulários dos dois botões do sub menu Cadastro
 + Mudar logo do footer
 - Configurar barra de pesquisa para Real Time
 - Configurar botão Listas
@@ -11,6 +11,7 @@
 - Configurar Middleware do menu principal
 + Estilizar tela de login
 + Achar uma boa posição para o Auth
-- Configurar fonte ROBOTO
++ Configurar fonte ROBOTO
 + to fazendo uma request - configurando a form de aluno
++ terminar lógica do livroForm
 
