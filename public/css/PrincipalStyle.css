@@ -237,4 +237,25 @@ actived, .BoxMenu:hover{
     background-color: chartreuse;
 }
 
+.optionsMenu{
+   display: flex;
+    width: 100%;
+    text-align: center;
+} 
+.OptionArea{
+    padding: 5px; 
+    width: 20%;
+    display: flex;
+    align-self: flex-start;
+    text-align: center;
+}
+.BoxDetails{
+    padding:30px;   
+    display: flex;
+    align-self: flex-start;
+    list-style: none;
+}
+ul li{
+    list-style: none;
+}
 

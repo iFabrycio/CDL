@@ -23,6 +23,8 @@ Route::get('/RedirectToHT','MainController@RedirectToHT');
 Route::get('/lista/menu','MainController@ListaMenu');
 Route::get('/lista/Aluno','MainController@ListaAluno');
 Route::get('/lista/Aluno/Remover/{IdAluno}','MainController@removeAluno');
+Route::get('/lista/Aluno/Detalhes/{idAluno}','MainController@detailAluno');
+
 Route::get('/lista/Livro','MainController@ListaLivro');
 
 Route::get('/cadastro','MainController@Submenu');

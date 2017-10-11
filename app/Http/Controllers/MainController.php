@@ -22,15 +22,67 @@ class MainController extends Controller
     
         return view('Content.menu');
     }
-    
+    public function RedirectToHT(){
+        return Redirect::to('http://hacktown.petrolina.ifsertao-pe.edu.br');
+    }
+    public function SubMenu(){
+    	return view('Content.SubMenu');
+    } 
     public function ListaMenu(){
         return view('Content.ListaMenu');
     }
     public function ListaAluno(){
-        $aluno = Aluno::all();
-        return view('Content.ListaAluno',[
-            'aluno'=> $aluno
-        ]);   
+        $aluno = new Aluno;
+        $result = Request::input('Pesquisa');
+        $order = Request::input('organizar');
+        if(empty($order)){
+            $order = 'IdAluno';
+        }
+        
+        if(empty($result)){ //Se não tiver nada na pesquisa este If retornará todos os dados.
+        
+            $aluno = Aluno::all();
+            $aluno = DB::table('aluno')
+                ->orderBy( $order , 'asc')
+                ->get();
+            
+            $trigger = 1;
+            
+            return view('Content.ListaAluno',[
+                'aluno'=> $aluno,
+                'trigger'=>$trigger,]);   
+        
+        }else{ //Mas se tiver algo na pesquisa ele irá procurar
+            
+            $aluno = Aluno::where('nome','like','%'.$result.'%')
+                ->orderBy( $order ,'asc')
+                ->get();
+           
+            
+            if(count($aluno)>0){ //e caso ele ache algo no banco, irá retornar
+                $trigger = 1;
+                
+                return view('Content.ListaAluno',[
+                'aluno'=> $aluno,
+                'trigger'=>$trigger,
+                ]);
+            } else { //mas se não achar, retornará todos os dados com a mensagem que não obteve sucesso
+                
+                $aluno = Aluno::all();
+            
+                $aluno = DB::table('aluno')
+                ->orderBy( $order , 'asc')
+                ->get();
+                $trigger = 0;
+                
+                return view('Content.ListaAluno',[
+                'aluno'=> $aluno,
+                'trigger'=>$trigger,
+                ]);
+                    
+            }
+        }
+        
     }
     public function removeAluno($IdAluno){
         $aluno =Aluno::find($IdAluno);
@@ -38,13 +90,10 @@ class MainController extends Controller
         return redirect()
             ->action('MainController@ListaAluno');
         
-    }
-    
-    public function RedirectToHT(){
-        return Redirect::to('http://hacktown.petrolina.ifsertao-pe.edu.br');
-    }
-    public function SubMenu(){
-    	return view('Content.SubMenu');
+    }  
+    public function detailAluno($IdAluno){
+        $aluno = Aluno::find($IdAluno);
+        return view('Content.DetailAluno',['aluno' => $aluno]);
     }
     public function Aluno(){
         return view('Content.AlunoForm');
@@ -57,6 +106,64 @@ class MainController extends Controller
             return redirect()
                 ->action('MainController@index');
                
+    }
+    
+    public function ListaLivro(){
+        
+        $livros = Livro::all();
+        $result = Request::input('Pesquisa');
+        $order = Request::input('organizar');
+        
+        if (empty($order)){
+            $order = 'Titulo';
+        }
+        
+//        if(empty($result)){ //Se não tiver nada na pesquisa este If retornará todos os dados.
+//        
+//            $livros = Livro::all();
+//            $livros = DB::table('livro')
+//                ->orderBy( $order , 'asc')
+//                ->get();
+//            
+//            $trigger = 1;
+//            
+//            return view('Content.ListaLivro',[
+//                'livro'=> $livros,
+//                'trigger'=>$trigger,]);   
+//        
+//        }else{ //Mas se tiver algo na pesquisa ele irá procurar
+//            
+//            $livros = Livro::where('Titulo','like','%'.$result.'%')
+//                ->orderBy( $order ,'asc')
+//                ->get();
+//           
+//            
+//            if(count($livro)>0){ //e caso ele ache algo no banco, irá retornar
+//                $trigger = 1;
+//                
+//                return view('Content.ListaLivro',[
+//                'livro'=> $livros,
+//                'trigger'=>$trigger,
+//                ]);
+//            } else { //mas se não achar, retornará todos os dados com a mensagem que não obteve sucesso
+//                
+//                $livros = Livro::all();
+//            
+//                $livros = DB::table('livro')
+//                ->orderBy( $order , 'asc')
+//                ->get();
+//                $trigger = 0;
+//                
+//                return view('Content.ListaLivro',[
+//                'livro'=> $livros,
+//                'trigger'=>$trigger,
+//                ]);
+//                    
+//            }
+//        }
+//        
+        
+        return view('Content.ListaLivro',['livro' =>$livros]);
     }
     public function Livro(){
         $autores = Autor::all();
@@ -74,14 +181,13 @@ class MainController extends Controller
 
 
         $livro = new Livro;
-        $livro ->IdGenero = Request::input('genero');
-        $livro ->IdEditora = Request::input('editora');
-        $livro ->IdAutor = Request::input('autor');
+        $livro ->IdGenero = Request::input('IdGenero');
+        $livro ->IdEditora = Request::input('IdEitora');
+        $livro ->IdAutor = Request::input('IdAutor');
         $livro = Livro::create($request ->all());
         return redirect()->action('MainController@Livro');
  
-    }
-    
+    }   
     public function autorCadastrar(){
         $autor = new Autor;
         $autor->nome = Request::input('nome');
@@ -110,4 +216,5 @@ class MainController extends Controller
         
         return redirect()->action('MainController@Livro');
     }
+    
 }

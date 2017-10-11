@@ -1,4 +1,13 @@
-@extends('Layout.principal') @section('content')
+@extends('Layout.principal') 
+@section('back')
+<a href="/cadastro">
+    Voltar
+</a>
+@endsection
+@section('title')
+Cadastrar Aluno
+@endsection
+@section('content')
 
 <br/><br/>
 

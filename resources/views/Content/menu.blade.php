@@ -1,4 +1,6 @@
-@extends('Layout.principal') @section('title') Menu @endsection @section('content')
+@extends('Layout.principal') @section('title') Menu @endsection
+
+@section('content')
 
 <br/>
 <br/>

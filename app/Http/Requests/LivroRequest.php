@@ -24,7 +24,7 @@ class LivroRequest extends FormRequest
     public function rules()
     {
         return [
-            'Titulo'    =>'required|max:20',
+            'Titulo'    =>'required|max:50',
             'Ano'       =>'required|size:4',
             'CDU'       =>'required|max:8',
             'CDD'       =>'required|max:8',
@@ -40,7 +40,7 @@ class LivroRequest extends FormRequest
     }
     public function messages(){
             return [
-                
+                'Titulo.max'=>'O titulo não pode ter mais que 50 caracteres.',
                 'IdAutor.required'=>"Selecione um Autor.",
                 'IdGenero.required'=>"Selecione um Genero.",
                 'IdEditora.required'=>"Selecione uma Editora.", 

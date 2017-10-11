@@ -1,4 +1,10 @@
-@extends('Layout.principal') @section('title') Cadastro @endsection @section('content')
+@extends('Layout.principal') @section('title') Cadastro @endsection
+@section('back')
+<a href="/home">
+    Voltar
+</a>
+@endsection
+@section('content')
 
 <br/>
 <br/>

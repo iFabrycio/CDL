@@ -41,6 +41,9 @@
         function MenuLista(){
             location.href = "/lista/menu";
         }
+        function MainMenu(){
+            location.href = "/home";
+        }
         
         function LogoutMethod(){
             event.preventDefault();
@@ -56,7 +59,7 @@
   <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
         <div class="poscentralized">
-            <div class="absolute positioned">
+            <div class="absolute positioned" onclick = "MainMenu()">
                     <ul class="nav navbar-nav">
                         <h3>Clube de Leitura</h3>
                     </ul>
@@ -70,6 +73,9 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Registrar-se</a></li>
                         @else
+                            <li>
+                                @yield('back')
+                            </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>

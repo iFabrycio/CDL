@@ -1,46 +1,78 @@
-@extends('Layout.principal') 
-@section('title')
-Lista de Alunos 
-@endsection 
+@extends('Layout.principal') @section('title') Lista de Alunos @endsection 
+@section('back')
+<a href="/lista/menu">
+    Voltar
+</a>
+@endsection
 @section('content')
-<div class="sidebar-nav">
-    
-        <div class="sidebar" align="center">
-            <ul>
-                
-                <li><div class="BoxMenu actived">Lista de alunos</div></li>
-                <li><div class="BoxMenu">Lista de livros</div></li>
-               
-                
-            </ul>
-        </div>
-    </div>
-<br/>
+
 <div class="poscentralized">
+
+    <fieldset>
+        <form class="form-group optionsMenu" method="get" action="/lista/Aluno">
+            <div class="OptionArea">
+                <label for="iPesquisa">Pesquisar aluno:</label>
+                <input id="iPesquisa" type=search class="form-control " value="{{old('nome')}}" placeholder="Digite o nome do aluno aqui" name="Pesquisa" />
+            </div>
+            <div class="OptionArea">
+                <label>Organizar por:</label>
+                <select class="form-control" name="organizar">
+                <option value="IdAluno">Id</option>
+                <option value="nome">Nome</option>
+                <option value="CPF">CPF</option>
+                </select>
+            </div>
+            <div class="OptionArea">
+                <input type="submit" class="btn btn-success" value="Organizar" />
+            </div>
+        </form>
+    </fieldset>
+</div>
+
+<div class="poscentralized">
+
     <div class="">
+
         <table class="table table-striped">
             <tr>
-            <th>ID</th>
-            <th>Aluno</th>
-            <th>Data de Nascimento</th>
-            <th>CPF</th>
-            <th>Opções</th>
+                <th>ID</th>
+                <th>Aluno</th>
+                <th>Data de Nascimento</th>
+                <th>CPF</th>
+                <th>Opções</th>
             </tr>
+
             @foreach($aluno as $a)
             <tr>
-            <td>{{$a -> IdAluno}}</td>
-            <td>{{$a -> nome}}</td>
-            <td>{{$a -> datnasc}}</td>
-            <td>{{$a -> CPF}}</td>
-            <td>
-                <a href="{{action('MainController@removeAluno',$a->IdAluno)}}">
+                <td>{{$a -> IdAluno}}</td>
+                <td>{{$a -> nome}}</td>
+                <td>{{$a -> datnasc}}</td>
+                <td>{{$a -> CPF}}</td>
+                <td>
+                    <a href="{{action('MainController@removeAluno',$a->IdAluno)}}">
                     <i class="glyphicon glyphicon-trash fa-2x" aria-hidden="true"></i>
                 </a>&nbsp; &nbsp;
-            <i class="glyphicon glyphicon-search fa-2x" aria-hidden="true"></i></td>
+                    <a href="{{action('MainController@detailAluno',$a->IdAluno)}}">
+                    <i class="glyphicon glyphicon-search fa-2x" aria-hidden="true"></i>
+                    </a>
+                </td>
             </tr>
-           @endforeach
-            
+            @endforeach
+
         </table>
     </div>
+
 </div>
-@stop
+@if($trigger == 0)
+<div class="poscentralized">
+    <div class="alert alert-danger">Não foi possível achar o aluno</div>
+</div>
+@else @if(count($aluno)>1)
+<div class="poscentralized">
+    <div class="alert alert-success">{{count($aluno)}} Alunos encontrados</div>
+</div>
+@else
+<div class="poscentralized">
+    <div class="alert alert-success">{{count($aluno)}} Aluno encontrado</div>
+</div>
+@endif @endif @stop

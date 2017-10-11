@@ -1,4 +1,12 @@
-@extends('Layout.principal') @section('title') Cadastrar Livros @endsection @section('content')
+@extends('Layout.principal') @section('title') Cadastrar Livros @endsection
+
+@section('back')
+<a href="/cadastro">
+    Voltar
+</a>
+@endsection
+
+@section('content')
 
 
     @foreach ($errors ->all() as $error)
@@ -33,7 +41,7 @@
                     <select class="form-control selectpicker" name="IdAutor" id="iAutor">
                         <option value="">Selecione um Autor</option>
                         @foreach ($autores as $autor)
-                        <option value="{{ $autor->id }}">{{ $autor->nome }}</option>
+                        <option value="{{ $autor->IdAutor }}">{{ $autor->nome }}</option>
                         @endforeach
                         
                     </select>
@@ -42,7 +50,7 @@
                     <select class="form-control" name="IdGenero" id="iGenero">
                         <option value="">Selecione um Genero</option>
                     @foreach($genero as $genero)
-                        <option value="{{$genero->id}}">{{$genero->nome}}</option>
+                        <option value="{{$genero->IdGenero}}">{{$genero->nome}}</option>
                         @endforeach
                     </select>
                     
@@ -69,7 +77,7 @@
                     <select class="form-control" name="IdEditora" id="iEditora">
                         <option value="">Selecione uma editora</option>
                         @foreach ($editora as $editor)
-                        <option value="{{ $editor->id }}">{{ $editor->nome }}</option>
+                        <option value="{{ $editor->IdEditora }}">{{ $editor->nome }}</option>
                         @endforeach
                     </select>
                     

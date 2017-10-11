@@ -1,5 +1,9 @@
 @extends('Layout.principal')
-
+@section('back')
+<a href="/home">
+    Voltar
+</a>
+@endsection
 @section('title')
 Lista
 @endsection

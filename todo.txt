@@ -3,7 +3,7 @@
 + Fazer formulários dos dois botões do sub menu Cadastro
 + Mudar logo do footer
 - Configurar barra de pesquisa para Real Time
-- Configurar botão Listas
++ Configurar botão Listas
 - Fazer lógicas para Reserva
 - Fazer lógicas para Devolução
 + Estilizar o Auth
