@@ -11,7 +11,7 @@
     <ul>
         <h3><b>Sobre o aluno:</b></h3>
         <li><b>CPF:</b> {{$aluno -> CPF}}</li>
-        <li><b>Data de nascimento:</b> {{$aluno -> datnasc}}</li>
+        <li><b>Data de nascimento:</b> {{$datnasc}}</li>
         <li><b>E-mail:</b> {{$aluno -> email}}</li> 
         <li><b>Natural de:</b> {{$aluno ->naturalidade}} - {{$aluno -> uf_natural}}</li>
         <li><b>Nome da mãe:</b> {{$aluno ->nome_mae}}</li>

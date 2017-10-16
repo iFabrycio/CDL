@@ -6,17 +6,22 @@
 @endsection
 @section('content')
 
+
 <div class="poscentralized">
 
-    <fieldset>
+    <fieldset class="">
         <form class="form-group optionsMenu" method="get" action="/lista/Aluno">
             <div class="OptionArea">
                 <label for="iPesquisa">Pesquisar aluno:</label>
+            </div>
+            <div class="OptionArea">
                 <input id="iPesquisa" type=search class="form-control " value="{{old('nome')}}" placeholder="Digite o nome do aluno aqui" name="Pesquisa" />
             </div>
             <div class="OptionArea">
-                <label>Organizar por:</label>
-                <select class="form-control" name="organizar">
+                <label for="iSelect">Organizar por:</label>
+            </div>
+            <div class="OptionArea">
+                <select class="form-control" name="organizar" id="iSelect">
                 <option value="IdAluno">Id</option>
                 <option value="nome">Nome</option>
                 <option value="CPF">CPF</option>

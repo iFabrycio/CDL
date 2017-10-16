@@ -25,7 +25,7 @@ Lista de Livros
                 <select class="form-control" name="organizar" id="iSelect">
                 <option value="Titulo">Titulo</option>
                 <option value="IdAutor">Autor</option>
-                <option value="genero">Genero</option>
+                <option value="IdGenero">Genero</option>
                 </select>
             </div>
             <div class="OptionArea">
@@ -53,7 +53,12 @@ Lista de Livros
                 <td>{{$l->Titulo}}</td>
                 <td>{{$l->autor->nome}}</td>
                 <td>{{$l->genero->nome}}</td>
-                <td>blah</td>
+                <td>
+                <a href="{{action('MainController@RemoveLivro',$l->IdLivro)}}"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
+               &nbsp; 
+                <a href="{{action('MainController@DetailLivro',$l->IdLivro)}}">
+                    <i class="fa fa-info fa-2x" aria-hidden="true"></i></a>
+                </td>
             </tr>
             @endforeach
             
@@ -63,16 +68,18 @@ Lista de Livros
     </div>
 
 </div>
-
+@if($trigger == 0)
 <div class="poscentralized">
-    <div class="alert alert-danger">Não foi possível achar o aluno</div>
+    <div class="alert alert-danger">Não foi possível achar o livro</div>
 </div>
-
+@else @if(count($livro)>1)
 <div class="poscentralized">
-    <div class="alert alert-success">Alunos encontrados</div>
+    <div class="alert alert-success">{{count($livro)}} Livros encontrados</div>
 </div>
-
+@else
 <div class="poscentralized">
-    <div class="alert alert-success">Aluno encontrado</div>
+    <div class="alert alert-success">{{count($livro)}} Livro encontrado</div>
 </div>
+@endif
+@endif
 @stop

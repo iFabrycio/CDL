@@ -14,6 +14,7 @@ use App\Http\Requests\AlunoRequest;
 use App\Http\Requests\LivroRequest;
 use Redirect;
 
+
 use Session;
 
 class MainController extends Controller
@@ -93,7 +94,12 @@ class MainController extends Controller
     }  
     public function detailAluno($IdAluno){
         $aluno = Aluno::find($IdAluno);
-        return view('Content.DetailAluno',['aluno' => $aluno]);
+        $datnasc = $aluno->datnasc;
+        $datnasc = $datnasc->format('d-m-Y');
+        
+        return view('Content.DetailAluno',[
+            'aluno' => $aluno,
+            'datnasc' => $datnasc]);
     }
     public function Aluno(){
         return view('Content.AlunoForm');
@@ -114,56 +120,48 @@ class MainController extends Controller
         $result = Request::input('Pesquisa');
         $order = Request::input('organizar');
         
-        if (empty($order)){
-            $order = 'Titulo';
+        if(empty($order)){
+            $order = 'IdLivro';
         }
         
-//        if(empty($result)){ //Se não tiver nada na pesquisa este If retornará todos os dados.
-//        
-//            $livros = Livro::all();
-//            $livros = DB::table('livro')
-//                ->orderBy( $order , 'asc')
-//                ->get();
-//            
-//            $trigger = 1;
-//            
-//            return view('Content.ListaLivro',[
-//                'livro'=> $livros,
-//                'trigger'=>$trigger,]);   
-//        
-//        }else{ //Mas se tiver algo na pesquisa ele irá procurar
-//            
-//            $livros = Livro::where('Titulo','like','%'.$result.'%')
-//                ->orderBy( $order ,'asc')
-//                ->get();
-//           
-//            
-//            if(count($livro)>0){ //e caso ele ache algo no banco, irá retornar
-//                $trigger = 1;
-//                
-//                return view('Content.ListaLivro',[
-//                'livro'=> $livros,
-//                'trigger'=>$trigger,
-//                ]);
-//            } else { //mas se não achar, retornará todos os dados com a mensagem que não obteve sucesso
-//                
-//                $livros = Livro::all();
-//            
-//                $livros = DB::table('livro')
-//                ->orderBy( $order , 'asc')
-//                ->get();
-//                $trigger = 0;
-//                
-//                return view('Content.ListaLivro',[
-//                'livro'=> $livros,
-//                'trigger'=>$trigger,
-//                ]);
-//                    
-//            }
-//        }
-//        
+        if(empty($result)){
+            $livros = Livro::all();
+            $livros = Livro::with('autor','editora','genero')
+                ->orderBy($order,'asc')
+                ->get(); //funcionou aqui
+            $trigger = 1;
+            return view('Content.ListaLivro',[
+                'livro' =>$livros,
+                'trigger' =>$trigger,
+            ]);
+            
+        } else {
+            
+            $livros = Livro::where('Titulo','like','%'.$result.'%')
+            ->orderBy($order,'asc')
+            ->get();  
+            
+            if(count($livros)>0){
+                $trigger = 1;
+                return view('Content.ListaLivro',[
+                'livro' =>$livros,
+                'trigger' =>$trigger,
+            ]);
+                
+            } else {
+                $trigger = 0;
+                $livros = Livro::all();
+                $livros = Livro::with('autor','editora','genero')
+                    ->orderBy($order,'asc')
+                    ->get();
+                return view('Content.ListaLivro',[
+                'livro' =>$livros,
+                'trigger' =>$trigger,
+            ]);
+            }
+        }
         
-        return view('Content.ListaLivro',['livro' =>$livros]);
+
     }
     public function Livro(){
         $autores = Autor::all();
@@ -215,6 +213,18 @@ class MainController extends Controller
         Session::flash('mensagem','Genero cadastrado com sucesso');
         
         return redirect()->action('MainController@Livro');
+    }
+    
+    public function RemoveLivro($IdLivro){
+        $livro = Livro::find($IdLivro);
+        $livro->delete();
+        return redirect()
+            ->action('MainController@ListaLivro');
+    }
+    public function DetailLivro($IdLivro){
+        $livro = Livro::find($IdLivro);
+        
+        return view('Content.DetailLivro',['livro'=>$livro]);
     }
     
 }

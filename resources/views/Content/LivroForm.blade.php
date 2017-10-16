@@ -22,7 +22,10 @@
             <form class="form-horizontal" method="post" action="{{ url('/cadastro/Livro/Submit') }}">
                 
                 {{ csrf_field() }}
-                
+                <div class="input input-default" align="center">
+                    <label for ="iCod">Código do livro</label>
+                    <input id ="iCod" class="form-control" name="codLivro"/>
+                </div>
                 <div class="group" align="center">
                 <div class="form-group group1">
                     <label for="Titulo">Titulo</label>

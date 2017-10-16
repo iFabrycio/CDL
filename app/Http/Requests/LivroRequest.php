@@ -26,14 +26,15 @@ class LivroRequest extends FormRequest
         return [
             'Titulo'    =>'required|max:50',
             'Ano'       =>'required|size:4',
-            'CDU'       =>'required|max:8',
-            'CDD'       =>'required|max:8',
+            'CDU'       =>'required|max:20',
+            'CDD'       =>'required|max:10',
             'ISBN'      =>'required|max:13',
             'NumEdicao' =>'required|max:3',
             'NumVolume' =>'required|max:3',
             'IdAutor'   =>'required',
             'IdEditora' =>'required',
             'IdGenero'  =>'required',
+            'codLivro'  =>'required',
           
             
         ];

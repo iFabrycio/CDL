@@ -15,4 +15,5 @@ class Aluno extends Model
         protected $primaryKey = 'IdAluno';
 
     protected $guarded = ['IdAluno'];
+    protected $dates = ['datnasc'];
 }

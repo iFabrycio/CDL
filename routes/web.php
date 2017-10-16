@@ -12,9 +12,6 @@
 */
 
 Route::get('/home','MainController@index');
-
-
-
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
@@ -26,6 +23,8 @@ Route::get('/lista/Aluno/Remover/{IdAluno}','MainController@removeAluno');
 Route::get('/lista/Aluno/Detalhes/{idAluno}','MainController@detailAluno');
 
 Route::get('/lista/Livro','MainController@ListaLivro');
+Route::get('/lista/Livro/Remover/{Idlivro}','MainController@RemoveLivro');
+Route::get('/lista/Livro/Detalhes/{IdLivro}','MainController@DetailLivro');
 
 Route::get('/cadastro','MainController@Submenu');
 Route::get('/cadastro/Aluno','MainController@Aluno');
