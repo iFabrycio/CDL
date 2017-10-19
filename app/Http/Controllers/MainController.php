@@ -20,8 +20,54 @@ use Session;
 class MainController extends Controller
 {
     public function index(){
+        $tr = 0;
+        $livros = Livro::all();
+        $result = Request::input('Pesquisa');
+        
+        
+        if(empty($result)){
+            $tr = 0;
+            $livros = Livro::all();
+            $livros = Livro::with('autor','editora','genero')
+                ->orderBy('Titulo','asc')
+                ->get(); //funcionou aqui
+            $trigger = 1;
+            
+            return view('Content.menu',[
+                'livro' =>$livros,
+                'trigger' =>$trigger,
+                'tr' =>$tr,
+                
+            ]);
+            
+        } else {
+            $tr = 1;
+            $livros = Livro::where('Titulo','like','%'.$result.'%')
+                ->orWhere('codLivro','like','%'.$result.'%')
+                
+            ->orderBy('Titulo','asc')
+            ->get();  
+            
+            if(count($livros)>0){
+                $tr = 1;
+                $trigger = 1;
+                return view('Content.menu',[
+                'livro' =>$livros,
+                'trigger' =>$trigger,
+                'tr' =>$tr,
+            ]);
+                
+            } else {
+                $trigger = 0;
+                $tr = 1;
+                return view('Content.menu',[
+                'livro' =>$livros,
+                'trigger' =>$trigger,
+                'tr' => $tr,
+            ]);
+            }
+        }
     
-        return view('Content.menu');
     }
     public function RedirectToHT(){
         return Redirect::to('http://hacktown.petrolina.ifsertao-pe.edu.br');
@@ -138,6 +184,8 @@ class MainController extends Controller
         } else {
             
             $livros = Livro::where('Titulo','like','%'.$result.'%')
+                ->orWhere('codLivro','like','%'.$result.'%')
+                
             ->orderBy($order,'asc')
             ->get();  
             

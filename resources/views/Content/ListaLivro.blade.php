@@ -16,7 +16,7 @@ Lista de Livros
                 <label for="iPesquisa">Pesquisar livro:</label>
             </div>
             <div class="OptionArea">
-                <input id="iPesquisa" type=search class="form-control " value="{{old('Titulo')}}" placeholder="Digite o nome do livro aqui" name="Pesquisa" />
+                <input id="iPesquisa" type=search class="form-control " value="{{old('Titulo')}}" placeholder="Digite aqui" name="Pesquisa" />
             </div>
             <div class="OptionArea">
                 <label for="iSelect">Organizar por:</label>
@@ -45,6 +45,7 @@ Lista de Livros
                 <th>Titulo</th>
                 <th>Autor</th>
                 <th>Genero</th>
+                <th>Código do livro</th>
                 <th>Opções</th>
             </tr>
             @foreach($livro as $l)
@@ -53,6 +54,7 @@ Lista de Livros
                 <td>{{$l->Titulo}}</td>
                 <td>{{$l->autor->nome}}</td>
                 <td>{{$l->genero->nome}}</td>
+                <td>{{$l->codLivro}}</td>
                 <td>
                 <a href="{{action('MainController@RemoveLivro',$l->IdLivro)}}"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
                &nbsp; 

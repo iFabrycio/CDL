@@ -55,10 +55,10 @@
                 <td>{{$a -> CPF}}</td>
                 <td>
                     <a href="{{action('MainController@removeAluno',$a->IdAluno)}}">
-                    <i class="glyphicon glyphicon-trash fa-2x" aria-hidden="true"></i>
-                </a>&nbsp; &nbsp;
+                    <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+                </a>&nbsp;
                     <a href="{{action('MainController@detailAluno',$a->IdAluno)}}">
-                    <i class="glyphicon glyphicon-search fa-2x" aria-hidden="true"></i>
+                    <i class="fa fa-info fa-2x" aria-hidden="true"></i>
                     </a>
                 </td>
             </tr>

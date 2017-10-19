@@ -16,6 +16,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/RedirectToHT','MainController@RedirectToHT');
+Route::get('/pesquisar/livro','MainController@PesquisarLivro');
 
 Route::get('/lista/menu','MainController@ListaMenu');
 Route::get('/lista/Aluno','MainController@ListaAluno');

@@ -20,14 +20,14 @@ Informações dos Livros
         @if(empty($livro->FotoCapa))
            <img src="/No-image-found.jpg" alt = "Foto de capa"/>
             @else
-            <img src="/No-image-found.jpg" alt = "Foto de capa" width ="200" height="200"/>
+            <img src="{{$livro->FotoCapa}}" alt = "Foto de capa" width ="200" height="200"/>
             @endif
         </div>
         <div class="BoxDetails">
             <ul>
                 <li><b>Código: </b>{{$livro->codLivro}}</li>
                 <li><b>Ano: </b>{{$livro->Ano}}</li>
-                <li><b>Foto de capa: </b>{{$livro->FotoCapa}}</li>
+                <li><b>Foto de capa: </b><a href="{{$livro ->FotoCapa}}">{{$livro->FotoCapa}}</a></li>
                 <li><b>Numero de páginas: </b>{{$livro->NumeroPaginas}}</li>
                 <li><b>CDU: </b>{{$livro->CDU}}</li>
                 <li><b>CDD: </b>{{$livro->CDD}}</li>
