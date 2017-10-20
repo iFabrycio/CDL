@@ -75,7 +75,7 @@
             </figure>
         </div>
     </div>
-</section>
+
 @if($tr == 1)
     
     
@@ -85,11 +85,13 @@
         <tr>
             <th>Titulo</th>
             <th>Código</th>
+            <th>Opção</th>
         </tr>
         @foreach ($livro as $l)
         <tr>
             <td>{{$l -> Titulo}}</td>
             <td>{{$l -> codLivro}}</td>
+            <td><a href="/livro/emprestar/{{$l->IdLivro}}"><button class="btn btn-success" value="Emprestar">Emprestar</button></a></td>
         </tr>
         @endforeach
         

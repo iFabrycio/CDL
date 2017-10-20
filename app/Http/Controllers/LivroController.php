@@ -7,6 +7,7 @@ use App\Genero;
 use App\Editora;
 use App\Autor;
 
+use Carbon\Carbon;
 use DB;
 use Request;
 use App\Http\Requests\AlunoRequest;
@@ -16,6 +17,18 @@ use Redirect;
 
 class LivroController extends Controller
 {
+      public function Livro(){
+        $autores = Autor::all();
+        $generos = Genero::all();
+        $editora = Editora::all();
+        
+        return view('Content.LivroForm', [
+            'autores' => $autores,
+            'editora' => $editora,
+            'genero' => $generos,
+            
+        ]);
+    }
     public function ListaLivro(){
         
         $livros = Livro::all();
@@ -67,18 +80,7 @@ class LivroController extends Controller
         
 
     }
-    public function Livro(){
-        $autores = Autor::all();
-        $generos = Genero::all();
-        $editora = Editora::all();
-        
-        return view('Content.LivroForm', [
-            'autores' => $autores,
-            'editora' => $editora,
-            'genero' => $generos,
-            
-        ]);
-    }
+  
     public function LivroSubmit(LivroRequest $request ){
 
 
@@ -130,5 +132,17 @@ class LivroController extends Controller
         $livro = Livro::find($IdLivro);
         
         return view('Content.DetailLivro',['livro'=>$livro]);
+    }
+    public function EmprestaLivro($IdLivro){
+        $livro = Livro::find($IdLivro);
+        
+        return view('Content.ConfirmaEmprestimo',['livro'=>$livro,]);
+    }
+    public function Emprestimo(){
+        date_default_timezone_set('America/Bahia');
+        $codLivro=Request::input('codLivro');
+        $CPF = Request::input('CPF');
+        $date = Carbon::tomorrow();
+        dd($codLivro ." e ". $CPF ." e ". $date);
     }
 }
