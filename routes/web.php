@@ -16,27 +16,27 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/RedirectToHT','MainController@RedirectToHT');
-Route::get('/pesquisar/livro','MainController@PesquisarLivro');
+
 
 Route::get('/lista/menu','MainController@ListaMenu');
-Route::get('/lista/Aluno','MainController@ListaAluno');
-Route::get('/lista/Aluno/Remover/{IdAluno}','MainController@removeAluno');
-Route::get('/lista/Aluno/Detalhes/{idAluno}','MainController@detailAluno');
+Route::get('/lista/Aluno','AlunoController@ListaAluno');
+Route::get('/lista/Aluno/Remover/{IdAluno}','AlunoController@removeAluno');
+Route::get('/lista/Aluno/Detalhes/{idAluno}','AlunoController@detailAluno');
 
-Route::get('/lista/Livro','MainController@ListaLivro');
-Route::get('/lista/Livro/Remover/{Idlivro}','MainController@RemoveLivro');
-Route::get('/lista/Livro/Detalhes/{IdLivro}','MainController@DetailLivro');
+Route::get('/lista/Livro','LivroController@ListaLivro');
+Route::get('/lista/Livro/Remover/{Idlivro}','LivroController@RemoveLivro');
+Route::get('/lista/Livro/Detalhes/{IdLivro}','LivroController@DetailLivro');
 
 Route::get('/cadastro','MainController@Submenu');
-Route::get('/cadastro/Aluno','MainController@Aluno');
-Route::post('/cadastro/Aluno/submit','MainController@AlunoSubmit');
+Route::get('/cadastro/Aluno','AlunoController@Aluno');
+Route::post('/cadastro/Aluno/submit','AlunoController@AlunoSubmit');
 
-Route::get('/cadastro/Livro','MainController@Livro');
-Route::post('/cadastro/Livro/Submit','MainController@LivroSubmit');
+Route::get('/cadastro/Livro','LivroController@Livro');
+Route::post('/cadastro/Livro/Submit','LivroController@LivroSubmit');
 
 /* Rotas de autor*/
-Route::post('/autor/cadastrar', 'MainController@autorCadastrar')->name('autor.cadastrar');
+Route::post('/autor/cadastrar', 'LivroController@autorCadastrar')->name('autor.cadastrar');
 //Rotas de editora
-Route::post('/editora/cadastrar','MainController@editoraCadastrar')->name('editora.cadastrar');
+Route::post('/editora/cadastrar','LivroController@editoraCadastrar')->name('editora.cadastrar');
 //Rotas de genero
-Route::post('/genero/cadastrar','MainController@generoCadastrar')->name('genero.cadastrar');
+Route::post('/genero/cadastrar','LivroController@generoCadastrar')->name('genero.cadastrar');

@@ -54,10 +54,10 @@
                 <td>{{$a -> datnasc}}</td>
                 <td>{{$a -> CPF}}</td>
                 <td>
-                    <a href="{{action('MainController@removeAluno',$a->IdAluno)}}">
+                    <a href="{{action('AlunoController@removeAluno',$a->IdAluno)}}">
                     <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
                 </a>&nbsp;
-                    <a href="{{action('MainController@detailAluno',$a->IdAluno)}}">
+                    <a href="{{action('AlunoController@detailAluno',$a->IdAluno)}}">
                     <i class="fa fa-info fa-2x" aria-hidden="true"></i>
                     </a>
                 </td>

@@ -20,7 +20,7 @@
 
 </style>
           
-    <title>CDL - @yield('title')</title>
+    <title>HT Clube - @yield('title')</title>
     <script type="text/javascript">  
         function MenuCadastro() {
             location.href = "/cadastro";
@@ -61,7 +61,7 @@
         <div class="poscentralized">
             <div class="absolute positioned" onclick = "MainMenu()">
                     <ul class="nav navbar-nav">
-                        <h3>Clube de Leitura</h3>
+                        <h3>HT Clube</h3>
                     </ul>
             </div>
       </div>

@@ -39,7 +39,7 @@ Lista de Livros
 
     <div class="">
 
-        <table class="table table-striped">
+        <table class="table table-striped table-responsive">
             <tr>
                 <th>ID</th>
                 <th>Titulo</th>
@@ -56,9 +56,9 @@ Lista de Livros
                 <td>{{$l->genero->nome}}</td>
                 <td>{{$l->codLivro}}</td>
                 <td>
-                <a href="{{action('MainController@RemoveLivro',$l->IdLivro)}}"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
+                <a href="{{action('LivroController@RemoveLivro',$l->IdLivro)}}"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
                &nbsp; 
-                <a href="{{action('MainController@DetailLivro',$l->IdLivro)}}">
+                <a href="{{action('LivroController@DetailLivro',$l->IdLivro)}}">
                     <i class="fa fa-info fa-2x" aria-hidden="true"></i></a>
                 </td>
             </tr>

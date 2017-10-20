@@ -66,7 +66,7 @@ class AlunoRequest extends FormRequest
             'tel_celular.max'      =>  'O campo :attribute deve conter no máximo :max caracteres',
             'tel_fixo.required'    =>  'O campo :attribute não pode ficar vazio',
             'tel_fixo.max'         =>  'O campo :attribute deve conter no máximo :max caracteres',
-            'escola_origem.required' =>'O campo :attribute não deve ficar vazio',
+          'escola_origem.required' =>  'O campo :attribute não deve ficar vazio',
             'serie.required'       =>  'O campo :attribute não deve ficar vazio',
             
         ];
