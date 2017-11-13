@@ -7,7 +7,9 @@ use App\Genero;
 use App\Editora;
 use App\Autor;
 use App\Multa;
-
+use App\Historico;
+use App\Users;
+use App\ConfigAdmin;
 
 use DB;
 use Request;
@@ -21,6 +23,11 @@ use Session;
 
 class MainController extends Controller
 {
+    
+    public function __construct(){
+        $this->middleware('auth');
+        $this->middleware('admincheck',['only'=>['AdminView']]);
+    }
     public function index(){
         $tr = 0;
         $livros = Livro::all();
@@ -85,8 +92,10 @@ class MainController extends Controller
     }  
     public function Historico(){
         
+        $historico = Historico::orderBy('id','DESC')->paginate(15);
+            
         
-        return view('Content.Historico');
+        return view('Content.Historico',['historico' => $historico]);
     }
     public function Reserva($id){
         $id = Livro::find($id);
@@ -106,7 +115,7 @@ class MainController extends Controller
         
         if($isBloqueado -> StatusAluno == 2){
             Session::flash('mensagemError','Aluno bloqueado');
-            return redirest()
+            return redirect()
                 ->action('MainController@index');
         }
         
@@ -121,9 +130,25 @@ class MainController extends Controller
                     ->where('codLivro',$codLivro)
                     ->update(['isReserved' => 1]);
         
+        $aluno = Aluno::where('cpf', $CPF)->get()->first();
+               $hist = new Historico;
+                $hist->Atividade = "Reservou um livro, reserva válida até ".$ProxSemana;
+                $hist->NomeAluno = $aluno -> nome;
+                $hist ->CPF = $CPF;
+                $hist ->CodLivro = $codLivro;
+                $hist ->save();
+        
         Session::flash('mensagem','Livro Reservado com sucesso');
             return redirect()
                 ->action('MainController@index');
 
+    }
+    public function AdminView(){
+        $users = Users::all();
+        $config = new ConfigAdmin;
+        $config = ConfigAdmin::where('id', 1)->get()->first();
+        return view('Content.AdminPanel',[
+            'users' => $users,
+            'config' => $config,]);
     }
 }

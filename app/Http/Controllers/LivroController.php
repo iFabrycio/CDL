@@ -8,6 +8,8 @@ use App\Editora;
 use App\Autor;
 use App\Emprestimo;
 use App\Aluno;
+use App\Historico;
+use App\ConfigAdmin;
 
 use Carbon\Carbon;
 use Query\Builder;
@@ -22,6 +24,10 @@ use Session;
 
 class LivroController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+        $this->middleware('admincheck',['only' =>['RemoveLivro']]);
+    }
     
     public function Livro(){
         $autores = Autor::all();
@@ -88,7 +94,8 @@ class LivroController extends Controller
     }
   
     public function LivroSubmit(LivroRequest $request ){
-
+        
+        
 
         $livro = new Livro;
         $livro ->IdGenero = Request::input('IdGenero');
@@ -173,7 +180,8 @@ class LivroController extends Controller
             
             
             if($aluno->StatusAluno == 2){
-                Session::flash('mensagemError','Aluno bloqueado por devolver o livro atrasado');
+                
+                Session::flash('mensagemError','Aluno bloqueado por devolver um livro atrasado');
                 return redirect()
                     ->action('MainController@index');
             }
@@ -227,7 +235,12 @@ class LivroController extends Controller
         //Gravação do registro de emprestimos
                 DB::insert('insert into emprestimo (CodigoLivro,CPFAluno,DataEmprestimo,DataDevolucao) values (?,?,?,?)',array($codLivro,$CPF,$hoje,$datalimite));  
         //Mudança do status do aluno e do livro para 1
-                
+                $hist = new Historico;
+                $hist->Atividade = "Pegou um livro emprestado";
+                $hist->NomeAluno = $aluno -> nome;
+                $hist ->CPF = $aluno -> CPF;
+                $hist ->CodLivro = $codLivro;
+                $hist ->save();
 
                     DB::table('aluno')
                         ->where('CPF', $CPF)
@@ -294,7 +307,12 @@ class LivroController extends Controller
                
                $value = $datahoje->diffInDays($datadevolucao);
                
-               $multa = $value * 2;
+               $dias = DB::table('configuracao')
+                   ->select('DiasMulta')
+                   ->get()
+                   ->first();
+               
+               $multa = $value * $dias->DiasMulta;
                
                  if ($multa == 0){ //estabeleceu o minimo de 2 dias
                     
@@ -329,6 +347,14 @@ class LivroController extends Controller
                    ->where('codLivro',$codLivro)
                    ->update(['StatusLivro' =>0]);
                
+               $aluno = Aluno::where('cpf', $CPFAluno)->get()->first();
+               $hist = new Historico;
+                $hist->Atividade = "Devolveu um livro atrasado, bloqueado até ".$datamultafim;
+                $hist->NomeAluno = $aluno -> nome;
+                $hist ->CPF = $CPFAluno;
+                $hist ->CodLivro = $codLivro;
+                $hist ->save();
+               
                Session::flash('mensagem','Livro devolvido, aluno bloqueado por devolve-lo atrasado');
                 return redirect()
                ->action('LivroController@Devolucao');
@@ -351,6 +377,13 @@ class LivroController extends Controller
                     ['CPFAluno', '=', $CPFAluno]
                ])->delete();
            
+              $aluno = Aluno::where('cpf', $CPFAluno)->get()->first();
+               $hist = new Historico;
+                $hist->Atividade = "Devolveu um livro emprestado";
+                $hist->NomeAluno = $aluno -> nome;
+                $hist ->CPF = $CPFAluno;
+                $hist ->CodLivro = $codLivro;
+                $hist ->save();
            
            Session::flash('mensagemSuccess','Livro devolvido.');
            return redirect()

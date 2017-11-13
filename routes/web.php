@@ -17,7 +17,12 @@ Route::get('/lista/menu','MainController@ListaMenu');
 Route::get('/Historico','MainController@Historico');
 Route::get('/Reserva/{id}','MainController@Reserva');
 Route::post('/Reservado','MainController@ReservarLivro');
+
+Route::get('/Admin/painel','MainController@AdminView');
+
 Auth::routes();
+Route::get('/Admin/painel/dias','AdminController@SetupDias');
+Route::get('/Admin/painel/register','AdminController@RegisterUser');
 
 Route::get('/', 'HomeController@index')->name('home');
 

@@ -7,130 +7,153 @@
 
 *,
 *:before,
-*:after{
+*:after {
     box-sizing: border-box;
-        margin:0;
-        padding:0;
-        font-size: 1em;
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
 }
 
-body{
+.ScrollStyle::-webkit-scrollbar-track {
+    background-color: #dad7d7;
+}
+
+.ScrollStyle::-webkit-scrollbar {
+    width: 6px;
+    background: #F4F4F4;
+}
+
+.ScrollStyle::-webkit-scrollbar-thumb {
+    background: chartreuse;
+}
+
+body {
     font-family: 'roboto';
 }
-a{
+
+a {
     text-decoration-color: white;
 }
-.panell{
+
+.panell {
     padding: 10px;
-    width:300px;
+    width: 300px;
 }
+
 @-moz-keyframes TransitionMenu {
     from {
-    padding: 30px;
-    width: 120px;
+        padding: 30px;
+        width: 120px;
     }
 
     to {
-    padding: 30px;
-    width: 150px;
+        padding: 30px;
+        width: 150px;
     }
 }
 
+
+
 /* Standard syntax */
+
 @keyframes TransitionMenu {
     from {
-    padding: 30px;
-    width: 120px;
-    border-top-color: chartreuse;
+        padding: 30px;
+        width: 120px;
+        border-top-color: chartreuse;
     }
 
     to {
-    padding: 30px;
-    width: 150px;
+        padding: 30px;
+        width: 150px;
         border-top-color: #40cb00;
     }
 }
+
 @-moz-keyframes TransitionMenuReverse {
     from {
-    padding: 30px;
-    width: 150px;
+        padding: 30px;
+        width: 150px;
         border-top-color: #40cb00
     }
 
     to {
-        
-    padding: 30px;
-    width: 120px;
-        border-top-color:chartreuse;
+
+        padding: 30px;
+        width: 120px;
+        border-top-color: chartreuse;
     }
 }
 
+
+
 /* Standard syntax */
+
 @keyframes TransitionMenuReverse {
     from {
-    padding: 30px;
-    width: 150px;
+        padding: 30px;
+        width: 150px;
     }
 
     to {
-    padding: 30px;
-    width: 120px;
+        padding: 30px;
+        width: 120px;
     }
 }
 
-.BoxLogin{
-    
+.BoxLogin {
+
     border-color: #999;
     margin-top: 100px;
 }
 
-.MainNav{
-        -webkit-box-shadow: 0px 3px 10px 0px rgba(50, 50, 50, 0.53);
-        -moz-box-shadow:    0px 3px 10px 0px rgba(50, 50, 50, 0.53);
-        box-shadow:         0px 3px 10px 0px rgba(50, 50, 50, 0.53);
-    
-
+.MainNav {
+    -webkit-box-shadow: 0px 3px 10px 0px rgba(50, 50, 50, 0.53);
+    -moz-box-shadow: 0px 3px 10px 0px rgba(50, 50, 50, 0.53);
+    box-shadow: 0px 3px 10px 0px rgba(50, 50, 50, 0.53);
 }
 
-.SubNav{
+.SubNav {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    background-color:  chartreuse;
-    
+    background-color: chartreuse;
+
     margin-top: -23px;
     -webkit-box-shadow: 0px 3px 10px 0px rgba(50, 50, 50, 0.53);
-    -moz-box-shadow:    0px 3px 10px 0px rgba(50, 50, 50, 0.53);
-    box-shadow:         0px 3px 10px 0px rgba(50, 50, 50, 0.53);
+    -moz-box-shadow: 0px 3px 10px 0px rgba(50, 50, 50, 0.53);
+    box-shadow: 0px 3px 10px 0px rgba(50, 50, 50, 0.53);
 }
-.Prim{
-   width: 200px;
-    
+
+.Prim {
+    width: 200px;
 }
-.Second{
-    margin-top: -px;
+
+.Second {
+
     width: 100px;
-
 }
 
-.poscentralized{
-  
-  -webkit-display: flex;
-  display: flex;
-  -webkit-align-items: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  justify-content: center;
+.poscentralized {
+
+    -webkit-display: flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
 }
-#footer{
-    width:100%;
-    background-color:  #444;
-    padding:20px;
+
+#footer {
+    width: 100%;
+    background-color: #444;
+    padding: 20px;
     position: fixed;
     bottom: 0;
     left: 0;
 }
-.BoxButton{
-    
+
+.BoxButton {
+
     border-top-width: 10px;
     border-bottom-width: 1px;
     border-left-width: 1px;
@@ -142,14 +165,15 @@ a{
     border-bottom-color: #999;
     padding: 30px;
     width: 120px;
-   outline-offset: none; 
-
-    
+    outline-offset: none;
 }
-.BoxButton:hover{
 
-    -webkit-animation-name: TransitionMenu; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 0.5s; /* Safari 4.0 - 8.0 */
+.BoxButton:hover {
+
+    -webkit-animation-name: TransitionMenu;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 0.5s;
+    /* Safari 4.0 - 8.0 */
     animation-name: TransitionMenu;
     animation-duration: 0.5;
 
@@ -166,11 +190,13 @@ a{
     padding: 30px;
     width: 150px;
     text-align: center;
-    
 }
-.BoxButton:not( :hover ){ 
- -webkit-animation-name: TransitionMenuReverse; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+
+.BoxButton:not( :hover) {
+    -webkit-animation-name: TransitionMenuReverse;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s;
+    /* Safari 4.0 - 8.0 */
     animation-name: TransitionMenuReverse;
     animation-duration: 1;
 
@@ -185,113 +211,192 @@ a{
     border-right-color: #999;
     border-bottom-color: #999;
     padding: 30px;
-    text-align:center;
-    
- }
-
-.align-text{
-   margin:auto;
-   
+    text-align: center;
 }
-.DashBoard{
-    background-color:lightgrey;
-    opacity:
-    border-top-left-radius: 3px;
+
+.align-text {
+    margin: auto;
+}
+
+.DashBoard {
+    background-color: lightgrey;
+    opacity: border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     border-width: 0.5px;
 }
-.absolute{
+
+.absolute {
     position: absolute;
 }
-.positioned{
+
+.positioned {
     margin-top: 20px;
 }
-.widthed{
-    width:300px;
-    
+
+.widthed {
+    width: 300px;
 }
 
-.group1{
+.group1 {
     width: 50%;
-    float:left;
-}
-.group2{
-    width: 50%;
-    float:right;  
+    float: left;
 }
 
-.logo{
+.group2 {
+    width: 50%;
+    float: right;
+}
+
+.logo {
     width: 10%;
 }
-.sidebar{
+
+.sidebar {
     position: absolute;
     width: 200px;
     height: 95%;
     background-color: #444;
-    color:white;
+    color: white;
 }
-.BoxMenu{
-    padding:15px;
+
+.BoxMenu {
+    padding: 15px;
 }
-actived, .BoxMenu:hover{
-    color:#444;
+
+actived,
+.BoxMenu:hover {
+    color: #444;
     background-color: chartreuse;
 }
 
-.optionsMenu{
-   display: flex;
+.optionsMenu {
+    display: flex;
     width: 100%;
     text-align: center;
-} 
-.OptionArea{
-    padding: 5px; 
+}
+
+.OptionArea {
+    padding: 5px;
     width: 20%;
     display: flex;
     align-self: flex-start;
     text-align: center;
 }
-.BoxDetails{
-    padding:30px;   
+
+.BoxDetails {
+    padding: 30px;
     display: flex;
     align-self: flex-start;
     list-style: none;
 }
-ul li{
+
+ul li {
     list-style: none;
 }
-.content-menu{
-    margin-right:50%;
+
+.content-menu {
+    margin-right: 50%;
     align-items: center;
     justify-content: center;
     display: flex;
 }
-.search-result{
+
+.search-result {
     float: right;
     border-left-style: solid;
     border-left-width: 2px;
     border-left-color: chartreuse;
-    
+
     height: 90%;
     width: 50%;
     position: absolute;
     top: 50px;
     left: 50%;
-    
 }
+
 .search-result-list {
     width: 100%;
-    height:15% !important;
-    
+    height: 15% !important;
 }
-.sizeEmprestimo{
-    width:400px;
-    
-    padding:20px;
+
+.sizeEmprestimo {
+    width: 400px;
+
+    padding: 20px;
 }
-.padding{
-    padding:20px;
+
+.padding {
+    padding: 20px;
 }
-.container{
+
+.container {
     margin-top: 15px;
 }
+
+.historico {
+    margin-top: 20px;
+    width: 800px;
+}
+
+.admin-background {
+    display: flex;
+    height: 120px;
+    background-color: azure;
+    vertical-align: middle;
+}
+
+.admin-message {
+
+    margin-left: 50px;
+}
+
+.config-menu {
+    padding: 100px;
+    padding-top: 20px;
+    padding-bottom: 0px;
+}
+
+
+
+.ScrollStyle {
+    width: 500px;
+    max-height:50%;
+    overflow-y: scroll;
+}
+
+.optionlista {
+    margin-top: 8px;
+}
+
+#lateral {
+	padding:51px;
+    
+	-moz-transition: all 0.5s ease;
+		-webkit-transition: all 0.5s ease;
+			-o-transition: all 0.5s ease;
+				transition: all 0.5s ease;
+
+	background:#444;
+	height:100%;
+	overflow:hidden;
+	width:370px; 
+	position:fixed;
+	top:0;
+	left:-370px;
+    color: #FFF;
+	}
+
+
+
+.menu-active{
+	overflow-y:scroll;
+	-moz-transform: translate(370px, 0);
+		-webkit-transform: translate(370px, 0);
+			-o-transform: translate(370px, 0);
+				transform: translate(370px, 0);
+/*	padding-right:0;*/
+    padding: 20px;
+    
+}
+
 

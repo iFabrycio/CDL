@@ -8,7 +8,9 @@
 
 
 <div class="poscentralized">
+    <div class="historico">
 <table class="table table-hover">
+    {{$historico ->links()}}
     <tr>
     <th>Data</th>
     <th>Atividade</th>
@@ -16,6 +18,18 @@
     <th>CPF</th>
     <th>Código do livro</th>
     </tr>
+    @foreach($historico as $h)
+    <tr>
+    <td>{{$h -> DataHistorico}}</td>
+    <td>{{$h -> Atividade}}</td>
+    <td>{{$h -> NomeAluno}}</td>
+    <td>{{$h -> CPF}}</td>
+    <td>{{$h -> CodLivro}}</td>
+    </tr>
+    @endforeach
     </table> 
+    {{$historico ->links()}}
+   
 </div>
+    </div>
 @stop

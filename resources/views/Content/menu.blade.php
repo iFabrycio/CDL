@@ -12,9 +12,10 @@
     @else
     <div class="poscentralized">
     @endif
-        <form role="search" class="navbar-form">
-            <div class="form-group has-feedback">
-                <input type="text" class="form-control"  name="Pesquisa" placeholder="Procurar livros para emprestar"/>
+        <form role="search" class="" style="width:400px;">
+            <label for="iPesquisa">Pesquisar Livro:</label>
+            <div class="form-group has-feedback input input-default">
+                <input  id="iPesquisa" type="text" class="form-control"  name="Pesquisa" placeholder="Procurar livros para emprestar ou reservar"/>
                 <a href="/pesquisar/livro"><span class="form-control-feedback glyphicon glyphicon-search"> </span></a>
             </div>
         </form>
@@ -62,17 +63,7 @@
 
             </figure>
         </div>
-        <div class="BoxButton" style=" cursor: pointer;border-left:none;" onclick= "Reserva()">
-            <figure class="figure">
-                <div class="poscentralized">
-                    <i class="fa fa-bookmark-o fa-5x"></i>
-                </div>
-                <figcaption class="align-text" align="center">
-                    Reserva
-                </figcaption>
-
-            </figure>
-        </div>
+        
         <div class="BoxButton" onclick="MenuLista()" style="border-top-right-radius:5px; border-bottom-right-radius:5px; border-left:none;cursor: pointer;">
             <figure class="figure">
                 <div class="poscentralized">
