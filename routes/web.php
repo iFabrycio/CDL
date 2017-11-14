@@ -20,11 +20,28 @@ Route::post('/Reservado','MainController@ReservarLivro');
 
 Route::get('/Admin/painel','MainController@AdminView');
 
-Auth::routes();
+//Auth::routes();
+
+// Authentication Routes...
+$this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
+$this->post('login', 'Auth\LoginController@login');
+$this->post('logout', 'Auth\LoginController@logout')->name('logout');
+
+// Registration Routes...
+$this->get('/registrar', 'Auth\RegisterController@showRegistrationForm')->name('register');
+$this->post('registrar', 'Auth\RegisterController@register');
+
+// Password Reset Routes...
+$this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+$this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+$this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+$this->post('password/reset', 'Auth\ResetPasswordController@reset');
+
+
 Route::get('/Admin/painel/dias','AdminController@SetupDias');
 Route::post('/Admin/painel/register','AdminController@RegisterUser');
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'MainController@index')->name('home');
 
 //Rotas do controller AlunoController
 
@@ -56,3 +73,6 @@ Route::post('/autor/cadastrar', 'LivroController@autorCadastrar')->name('autor.c
 Route::post('/editora/cadastrar','LivroController@editoraCadastrar')->name('editora.cadastrar');
 //Rotas de genero
 Route::post('/genero/cadastrar','LivroController@generoCadastrar')->name('genero.cadastrar');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
