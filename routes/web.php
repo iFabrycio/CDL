@@ -40,6 +40,7 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('/Admin/painel/dias','AdminController@SetupDias');
 Route::post('/Admin/painel/register','AdminController@RegisterUser');
+Route::get('/Admin/painel/remover/{id}','AdminController@RemoverUsers');
 
 Route::get('/', 'MainController@index')->name('home');
 

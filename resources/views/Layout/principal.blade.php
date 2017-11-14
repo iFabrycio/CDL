@@ -102,7 +102,7 @@
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                 <li><a href="{{ route('login') }}">Login</a></li>
-                <li><a href="{{ route('register') }}">Registrar-se</a></li>
+                
                 @else
                 <li>
                     @yield('back')

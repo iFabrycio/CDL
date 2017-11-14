@@ -48,8 +48,8 @@
             <label>
                 <h3>Lista de Usuários:</h3>
             </label>
-            <p>Usuários Moderadores/Administradores  </p><div class="btn btn-primary " id="event-menu" onclick="MenuAdmin()">Adicionar usuário</div> 
-           
+            <p>Usuários Moderadores/Administradores  </p><div class="btn btn-primary buttonadicionar " id="event-menu" onclick="MenuAdmin()">Adicionar usuário</div> 
+        
 
             <div class="ScrollStyle">
                 <table class="table table-hover">
@@ -59,8 +59,8 @@
                             <div class="optionlista">{{$u ->name}}</div>
                         </td>
                         <td>
-                            <div class="btn btn-danger">Remover</div>
                             <div class="btn btn-primary">Tornar administrador</div>
+                           <a href="{{action('AdminController@RemoverUsers',$u -> id)}}"> <div class="btn btn-danger">Remover</div> </a>
                         </td>
                     </tr>
                     @else
@@ -68,10 +68,9 @@
                         <td>
                             <div class="optionlista">{{$u ->name}}</div>
                         </td>
-
                         <td>
                             <div class="btn btn-danger">Retirar administrador</div>
-                       
+                        </td>
                     </tr>
                     @endif @endforeach
                 </table>

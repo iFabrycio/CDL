@@ -42,5 +42,12 @@ class AdminController extends Controller
         $users ->password = bcrypt($users ->password);
         $users ->save();
         //Registrar usuários moderadores
+        return redirect() ->action('MainController@AdminView');
+    }
+    public function RemoverUsers($id){
+        $users = Users::find($id);
+        $users ->delete();
+        
+        return redirect() ->action('MainController@AdminView');
     }
 }
