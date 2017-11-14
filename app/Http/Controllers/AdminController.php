@@ -14,6 +14,7 @@ use App\ConfigAdmin;
 use DB;
 use Request;
 use App\Http\Requests\AlunoRequest;
+use App\Http\Requests\UsersRequest;
 use App\Http\Requests\LivroRequest;
 use Carbon\Carbon;
 use Redirect;
@@ -37,10 +38,9 @@ class AdminController extends Controller
     }
     public function RegisterUser(UsersRequest $request){
         $users = new Users;
-        $users = bcrypt(Request::input('password'));
-        $users = Aluno::create($request ->all());
+        $users = Users::create($request ->all());
+        $users ->password = bcrypt($users ->password);
         $users ->save();
-        
-        Session::flash('') //working here...
+        //Registrar usuários moderadores
     }
 }

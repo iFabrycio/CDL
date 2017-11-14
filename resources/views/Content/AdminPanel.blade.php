@@ -59,8 +59,8 @@
                             <div class="optionlista">{{$u ->name}}</div>
                         </td>
                         <td>
-                            <div class="btn btn-default">Remover</div>
-                            <div class="btn btn-default">Tornar administrador</div>
+                            <div class="btn btn-danger">Remover</div>
+                            <div class="btn btn-primary">Tornar administrador</div>
                         </td>
                     </tr>
                     @else
@@ -70,88 +70,8 @@
                         </td>
 
                         <td>
-                            <div class="btn btn-default">Retirar administrador</div>
-                        </td>
-                    </tr><tr class="info">
-                        <td>
-                            <div class="optionlista">{{$u ->name}}</div>
-                        </td>
-
-                        <td>
-                            <div class="btn btn-default">Retirar administrador</div>
-                        </td>
-                    </tr><tr class="info">
-                        <td>
-                            <div class="optionlista">{{$u ->name}}</div>
-                        </td>
-
-                        <td>
-                            <div class="btn btn-default">Retirar administrador</div>
-                        </td>
-                    </tr><tr class="info">
-                        <td>
-                            <div class="optionlista">{{$u ->name}}</div>
-                        </td>
-
-                        <td>
-                            <div class="btn btn-default">Retirar administrador</div>
-                        </td>
-                    </tr><tr class="info">
-                        <td>
-                            <div class="optionlista">{{$u ->name}}</div>
-                        </td>
-
-                        <td>
-                            <div class="btn btn-default">Retirar administrador</div>
-                        </td>
-                    </tr><tr class="info">
-                        <td>
-                            <div class="optionlista">{{$u ->name}}</div>
-                        </td>
-
-                        <td>
-                            <div class="btn btn-default">Retirar administrador</div>
-                        </td>
-                    </tr><tr class="info">
-                        <td>
-                            <div class="optionlista">{{$u ->name}}</div>
-                        </td>
-
-                        <td>
-                            <div class="btn btn-default">Retirar administrador</div>
-                        </td>
-                    </tr><tr class="info">
-                        <td>
-                            <div class="optionlista">{{$u ->name}}</div>
-                        </td>
-
-                        <td>
-                            <div class="btn btn-default">Retirar administrador</div>
-                        </td>
-                    </tr><tr class="info">
-                        <td>
-                            <div class="optionlista">{{$u ->name}}</div>
-                        </td>
-
-                        <td>
-                            <div class="btn btn-default">Retirar administrador</div>
-                        </td>
-                    </tr><tr class="info">
-                        <td>
-                            <div class="optionlista">{{$u ->name}}</div>
-                        </td>
-
-                        <td>
-                            <div class="btn btn-default">Retirar administrador</div>
-                        </td>
-                    </tr><tr class="info">
-                        <td>
-                            <div class="optionlista">{{$u ->name}}</div>
-                        </td>
-
-                        <td>
-                            <div class="btn btn-default">Retirar administrador</div>
-                        </td>
+                            <div class="btn btn-danger">Retirar administrador</div>
+                       
                     </tr>
                     @endif @endforeach
                 </table>

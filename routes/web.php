@@ -22,7 +22,7 @@ Route::get('/Admin/painel','MainController@AdminView');
 
 Auth::routes();
 Route::get('/Admin/painel/dias','AdminController@SetupDias');
-Route::get('/Admin/painel/register','AdminController@RegisterUser');
+Route::post('/Admin/painel/register','AdminController@RegisterUser');
 
 Route::get('/', 'HomeController@index')->name('home');
 
