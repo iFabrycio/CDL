@@ -74,11 +74,12 @@
                     @endif
                     
                 <td>
-                    <a href="{{action('AlunoController@removeAluno',$a->IdAluno)}}">
-                    <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-                </a>&nbsp;
-                    <a href="{{action('AlunoController@detailAluno',$a->IdAluno)}}">
-                    <i class="fa fa-info fa-2x" aria-hidden="true"></i>
+                    @if(Auth::user()->is_admin == 1)
+                    <a href="{{action('AlunoController@removeAluno',$a->IdAluno)}}"><div class="btn btn-danger">
+                        <i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Remover</div>
+                </a>&nbsp;@endif
+                    <a href="{{action('AlunoController@detailAluno',$a->IdAluno)}}"><div class="btn btn-primary">
+                    <i class="fa fa-info" aria-hidden="true"></i>&nbsp;Detalhes</div>
                     </a>
                 </td>
             </tr>

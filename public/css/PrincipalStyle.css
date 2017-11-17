@@ -52,10 +52,6 @@ a {
     }
 }
 
-
-
-/* Standard syntax */
-
 @keyframes TransitionMenu {
     from {
         padding: 30px;
@@ -85,10 +81,6 @@ a {
     }
 }
 
-
-
-/* Standard syntax */
-
 @keyframes TransitionMenuReverse {
     from {
         padding: 30px;
@@ -101,6 +93,27 @@ a {
     }
 }
 
+@keyframes footer {
+    from {
+        padding: .5%;
+        }
+
+    to {
+        padding: 20px;
+        
+    }
+}
+
+@keyframes footerReverse {
+    from {
+        padding:20px;
+        }
+
+    to {
+        padding: .5%;
+        
+    }
+}
 .BoxLogin {
 
     border-color: #999;
@@ -146,11 +159,35 @@ a {
 #footer {
     width: 100%;
     background-color: #444;
-    padding: 20px;
+    padding: .5%;
     position: fixed;
     bottom: 0;
     left: 0;
 }
+#footer:hover{
+     -webkit-animation-name: footer;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 0.5s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: footer;
+    animation-duration: 0.5;
+    padding: 20px;
+}
+#footer:not (:hover){
+     -webkit-animation-name: footerReverse;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 0.5s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: footerReverse;
+    animation-duration: 0.5;
+    padding: .5%;
+}
+.logo:hover{
+    width: 10%;
+}
+
+
+
 
 .BoxButton {
 
@@ -248,7 +285,7 @@ a {
 }
 
 .logo {
-    width: 10%;
+    width: 7%;
 }
 
 .sidebar {
@@ -338,18 +375,6 @@ ul li {
     width: 800px;
 }
 
-.admin-background {
-    display: flex;
-    height: 120px;
-    background-color: azure;
-    vertical-align: middle;
-}
-
-.admin-message {
-
-    margin-left: 50px;
-}
-
 .config-menu {
     padding: 100px;
     padding-top: 20px;
@@ -402,6 +427,10 @@ ul li {
     position: relative;
     margin-left: 73.2%;
     
+}
+.topo{
+    border-style: solid;
+    border-width: 1px;
 }
 
 

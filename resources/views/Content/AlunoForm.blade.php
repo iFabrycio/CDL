@@ -29,7 +29,7 @@ Cadastrar Aluno
 
 
         <div class="panel-group" style="width:300px;" id="accordion">
-            <div class="panel panel-default" >
+            <div class="panel panel-info" >
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
                     <div class="panel-heading">
                         <h4 class="panel-title" >
@@ -72,7 +72,7 @@ Cadastrar Aluno
 
                 </div>
             </div>
-            <div class="panel panel-default">
+            <div class="panel panel-danger">
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
 
                     <div class="panel-heading">
@@ -108,7 +108,7 @@ Cadastrar Aluno
                     </div>
                 </div>
             </div>
-            <div class="panel panel-default">
+            <div class="panel panel-success">
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
                     <div class="panel-heading">
                         <h4 class="panel-title">

@@ -39,8 +39,10 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
 
 Route::get('/Admin/painel/dias','AdminController@SetupDias');
+Route::get('/Admin/painel/bloqueio','AdminController@Dias');
 Route::post('/Admin/painel/register','AdminController@RegisterUser');
 Route::get('/Admin/painel/remover/{id}','AdminController@RemoverUsers');
+Route::get('/Admin/painel/definir/{id}','AdminController@DefinirNivel');
 
 Route::get('/', 'MainController@index')->name('home');
 

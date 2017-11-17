@@ -66,10 +66,13 @@ Lista de Livros
                     <td>Livre</td>
                 @endif
                 <td>
-                <a href="{{action('LivroController@RemoveLivro',$l->IdLivro)}}"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
+                @if(Auth::user()->is_admin == 1)   
+                <a href="{{action('LivroController@RemoveLivro',$l->IdLivro)}}"><div class="btn btn-danger">
+                        <i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Remover</div></a>@endif
                &nbsp; 
                 <a href="{{action('LivroController@DetailLivro',$l->IdLivro)}}">
-                    <i class="fa fa-info fa-2x" aria-hidden="true"></i></a>
+                    <div class="btn btn-primary">
+                    <i class="fa fa-info" aria-hidden="true"></i>&nbsp;Detalhes</div></a>
                 </td>
             </tr>
             @endforeach

@@ -145,10 +145,9 @@ class MainController extends Controller
     }
     public function AdminView(){
         $users = Users::all();
-        $config = new ConfigAdmin;
-        $config = ConfigAdmin::where('id', 1)->get()->first();
+        
         return view('Content.AdminPanel',[
             'users' => $users,
-            'config' => $config,]);
+            ]);
     }
 }

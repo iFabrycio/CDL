@@ -37,6 +37,8 @@ class UsersRequest extends FormRequest
             'password.required'=>'Você precisa por uma senha.',
             'CPF.required'=>'Digite um CPF',
             '*.unique'=>'CPF ou E-mail já cadastrado',
+            'password.min'=>'A senha deve ter no mínimo 6 caracteres.',
+            'password.confirmed'=>'As senhas não são iguais',
         ];
     }
 }

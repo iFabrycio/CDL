@@ -15,7 +15,83 @@
     </div>
 </div>
     @endforeach
-
+<div class="container poscentralized">
+    <div class="row">
+        @if (Session::has('mensagem'))
+        <div class="alert alert-success">
+            <a href="#" class="close" aria-label="close" data-dismiss="alert">&times;</a>
+            {{ Session::get('mensagem') }}
+        </div>
+        @endif
+        <div>
+            <section align="center">
+        <div class="withed" style="display:inline-block; margin-right:50px;">            
+            <form class="form-horizontal" method="post" action="{{ route('autor.cadastrar') }}">
+                
+                {{ csrf_field() }}
+                
+                <div class="form-group">
+                    <label class="form-control-label" for="i_nome-autor">
+                        Nome do autor:
+                    </label>
+                    <input required class="form-control" name="nome" value="{{ old('nome') }}" id="i_nome-autor"/>
+                </div>
+                
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit">
+                        <i class="fa fa-save"></i> Cadastrar autor
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <div style="display:inline-block;" class="withed">            
+            <form class="form-horizontal" method="post" action="{{ route('editora.cadastrar') }}">
+                
+                {{ csrf_field() }}
+                
+                <div class="form-group">
+                    <label class="form-control-label" for="i_nome-editora">
+                        Nome da editora:
+                    </label>
+                    <input required class="form-control" name="nome" value="{{ old('nome') }}" id="i_nome-editora"/>
+                </div>
+                
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit">
+                        <i class="fa fa-save"></i> Cadastrar editora
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="withed" style="display:inline-block; margin-left:50px;">            
+            <form class="form-horizontal" method="post" action="{{ route('genero.cadastrar') }}">
+                
+                {{ csrf_field() }}
+                
+                <div class="form-group">
+                    <label class="form-control-label" for="i_nome-genero">
+                        Nome do genero:
+                    </label>
+                    <input required class="form-control" name="nome" value="{{ old('nome') }}" id="i_nome-genero"/>
+                </div>
+                
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit">
+                        <i class="fa fa-save"></i> Cadastrar genero
+                    </button>
+                </div>
+            </form>
+        </div>
+            
+            </section>
+        </div>
+</div>
+</div>
+<div class="divider">
+    <hr/>
+</div>
     <div class="poscentralized" style="margin-top:50px;">
         
         <div class="form-group" style="width:500px;">
@@ -91,83 +167,8 @@
                     </form>
         </div>
     </div>
-<div class="divider">
-    <hr/>
-</div>
-<div class="container poscentralized">
-    <div class="row">
-        @if (Session::has('mensagem'))
-        <div class="alert alert-success">
-            <a href="#" class="close" aria-label="close" data-dismiss="alert">&times;</a>
-            {{ Session::get('mensagem') }}
-        </div>
-        @endif
-        <div>
-            <section align="center">
-        <div class="withed" style="display:inline-block; margin-right:50px;">            
-            <form class="form-horizontal" method="post" action="{{ route('autor.cadastrar') }}">
-                
-                {{ csrf_field() }}
-                
-                <div class="form-group">
-                    <label class="form-control-label" for="i_nome-autor">
-                        Nome do autor:
-                    </label>
-                    <input required class="form-control" name="nome" value="{{ old('nome') }}" id="i_nome-autor"/>
-                </div>
-                
-                <div class="form-group">
-                    <button class="btn btn-success" type="submit">
-                        <i class="fa fa-save"></i> Cadastrar autor
-                    </button>
-                </div>
-            </form>
-        </div>
-        
-        <div style="display:inline-block;" class="withed">            
-            <form class="form-horizontal" method="post" action="{{ route('editora.cadastrar') }}">
-                
-                {{ csrf_field() }}
-                
-                <div class="form-group">
-                    <label class="form-control-label" for="i_nome-editora">
-                        Nome da editora:
-                    </label>
-                    <input required class="form-control" name="nome" value="{{ old('nome') }}" id="i_nome-editora"/>
-                </div>
-                
-                <div class="form-group">
-                    <button class="btn btn-success" type="submit">
-                        <i class="fa fa-save"></i> Cadastrar editora
-                    </button>
-                </div>
-            </form>
-        </div>
-        
-        <div class="withed" style="display:inline-block; margin-left:50px;">            
-            <form class="form-horizontal" method="post" action="{{ route('genero.cadastrar') }}">
-                
-                {{ csrf_field() }}
-                
-                <div class="form-group">
-                    <label class="form-control-label" for="i_nome-genero">
-                        Nome do genero:
-                    </label>
-                    <input required class="form-control" name="nome" value="{{ old('nome') }}" id="i_nome-genero"/>
-                </div>
-                
-                <div class="form-group">
-                    <button class="btn btn-success" type="submit">
-                        <i class="fa fa-save"></i> Cadastrar genero
-                    </button>
-                </div>
-            </form>
-        </div>
-            
-            </section>
-        </div>
-</div>
-</div>
+
+
 <br/>
 <br/>
 <br/>

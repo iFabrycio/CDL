@@ -87,7 +87,7 @@
 <body>
 
     <div class="nabr navbar-default">
-        <div class="collapse navbar-collapse" id="app-navbar-collapse">
+        <div class="collapse navbar-collapse topo" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <div class="poscentralized">
                 <div class="absolute positioned" style="cursor:pointer;" onclick="MainMenu()">
@@ -123,6 +123,11 @@
                         <li>
                             <a href="/Admin/painel">
                                             Registrar usuário
+                                        </a>
+                        </li>
+                        <li>
+                            <a href="/Admin/painel/bloqueio">
+                                            Definir tempo de bloqueio
                                         </a>
                         </li>
                     </ul>

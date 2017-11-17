@@ -1,5 +1,9 @@
 @extends('Layout.principal')
-
+@section('back')
+<a href="/lista/Aluno">
+    Voltar
+</a>
+@endsection
 @section('title')
     Detalhes do aluno
 @endsection

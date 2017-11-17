@@ -4,79 +4,70 @@
 </a> @endsection @section('title') Configurações @endsection @section('content')
 
 
-
-<!-- -->
-
-<!--
-
-    <div class="config-menu ">
-        <form class=" form form-group" action="{{action('AdminController@SetupDias')}}" method="get">
-            <label>
-<h3>Definir tempo de multa padrão:</h3>
-    </label>
-
-            <table class="table table-default" style="width:485px;">
-                <tr>
-                    <td>
-                        <p>Numero de dias atrasados X</p>
-                    </td>
-                    <td>
-                        <input name="Dias" class=" form form-control" type="number" min="1" max="10" style="width:80px; " /> 
-                        <td>
-                    <input class="btn btn-success" value="Definir" type="submit" />
-                    </td><td>
-                             <label class="label label-info">Definido Atualmente: {{$config->DiasMulta}}</label>
-                    </td>
-                </tr>
-            </table>
-
-        </form>
-      
-
-
+ @foreach ($errors ->all() as $error)
+<div class="poscentralized">
+    <div class="alert alert-danger widthed" align="center">{{$error}}
     </div>
--->
+</div>
+@endforeach
 
-
-
-
-
+<br/>
+<div class="poscentralized">
+@if(Session::has('mensagem'))
+    
+<div class="alert alert-success" style="">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close"> &nbsp; &times;</a> {{Session::get('mensagem')}}
+</div>
+@endif
+@if(Session::has('mensagemError'))
+    
+<div class="alert alert-danger" style="">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close"> &nbsp; &times;</a> {{Session::get('mensagemError')}}
+</div>
+@endif
+</div>
 
 <div class="poscentralized">
     <div class=" config-menu-usuarios">
-       
-            <label>
+
+        <label>
                 <h3>Lista de Usuários:</h3>
             </label>
-            <p>Usuários Moderadores/Administradores  </p><div class="btn btn-primary buttonadicionar " id="event-menu" onclick="MenuAdmin()">Adicionar usuário</div> 
-        
+        <p>Usuários Moderadores/Administradores </p>
+        <div class="btn btn-primary buttonadicionar " id="event-menu" onclick="MenuAdmin()">Adicionar usuário</div>
 
-            <div class="ScrollStyle">
-                <table class="table table-hover">
-                    @foreach($users as $u) @if($u->is_admin == 0)
-                    <tr class="success optionlista">
-                        <td>
-                            <div class="optionlista">{{$u ->name}}</div>
-                        </td>
-                        <td>
+
+        <div class="ScrollStyle">
+            <table class="table table-hover">
+                @foreach($users as $u) @if($u->is_admin == 0)
+                <tr class="success optionlista">
+                    <td>
+                        <div class="optionlista">{{$u ->name}}</div>
+                    </td>
+                    <td>
+                        <a href="{{action('AdminController@DefinirNivel',$u->id)}}">
                             <div class="btn btn-primary">Tornar administrador</div>
-                           <a href="{{action('AdminController@RemoverUsers',$u -> id)}}"> <div class="btn btn-danger">Remover</div> </a>
-                        </td>
-                    </tr>
-                    @else
-                    <tr class="info">
-                        <td>
-                            <div class="optionlista">{{$u ->name}}</div>
-                        </td>
-                        <td>
+                        </a>
+                        <a href="{{action('AdminController@RemoverUsers',$u -> id)}}">
+                            <div class="btn btn-danger">Remover</div>
+                        </a>
+                    </td>
+                </tr>
+                @else
+                <tr class="info">
+                    <td>
+                        <div class="optionlista">{{$u ->name}}</div>
+                    </td>
+                    <td>
+                        <a href="{{action('AdminController@DefinirNivel',$u->id)}}">
                             <div class="btn btn-danger">Retirar administrador</div>
-                        </td>
-                    </tr>
-                    @endif @endforeach
-                </table>
-            </div>
+                    </td>
+                </tr>
+                @endif @endforeach
+            </table>
+        </div>
 
-     
+
     </div>
 
 </div>
@@ -145,8 +136,8 @@
                                     Registrar
                                 </button>
                     <div onclick="MenuAdmin()" class="btn btn-danger ">
-                                    Cancelar
-                                </div>
+                        Cancelar
+                    </div>
                 </div>
             </div>
         </form>
