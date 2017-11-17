@@ -1,19 +1,8 @@
 @charset "UTF-8";
 
-@font-face {
-    font-family: roboto;
-    src: url("{{ public_path('Roboto-Thin.ttf') }}");
-}
 
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-size: 1em;
-}
 
+/* Personalização do Scroll da admin view */
 .ScrollStyle::-webkit-scrollbar-track {
     background-color: #dad7d7;
 }
@@ -26,27 +15,33 @@
 .ScrollStyle::-webkit-scrollbar-thumb {
     background: chartreuse;
 }
+/*Fim da personalização*/
 
+
+/*Definições gerais*/
 body {
     font-family: 'roboto';
+    background: url(/background.jpg);
 }
 
 a {
     text-decoration-color: white;
 }
 
-.panell {
-    padding: 10px;
-    width: 300px;
-}
+/*Fim das definições*/
+
+
+
 
 @-moz-keyframes TransitionMenu {
     from {
         padding: 30px;
         width: 120px;
+        background-color: rgba(255,255,255,.1);
     }
 
     to {
+        background-color: rgba(255,255,255,.5);
         padding: 30px;
         width: 150px;
     }
@@ -57,12 +52,14 @@ a {
         padding: 30px;
         width: 120px;
         border-top-color: chartreuse;
+        background-color: rgba(255,255,255,.1);
     }
 
     to {
         padding: 30px;
         width: 150px;
         border-top-color: #40cb00;
+        background-color: rgba(255,255,255,.5);
     }
 }
 
@@ -70,11 +67,12 @@ a {
     from {
         padding: 30px;
         width: 150px;
-        border-top-color: #40cb00
+        border-top-color: #40cb00;
+        background-color: rgba(255,255,255,.5);
     }
 
     to {
-
+        background-color: rgba(255,255,255,.1);
         padding: 30px;
         width: 120px;
         border-top-color: chartreuse;
@@ -85,11 +83,14 @@ a {
     from {
         padding: 30px;
         width: 150px;
+        background-color: rgba(255,255,255,.5);
+
     }
 
     to {
         padding: 30px;
         width: 120px;
+        background-color: rgba(255,255,255,.1);
     }
 }
 
@@ -100,7 +101,7 @@ a {
 
     to {
         padding: 20px;
-        
+       
     }
 }
 
@@ -126,15 +127,9 @@ a {
     box-shadow: 0px 3px 10px 0px rgba(50, 50, 50, 0.53);
 }
 
-.SubNav {
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    background-color: chartreuse;
-
-    margin-top: -23px;
-    -webkit-box-shadow: 0px 3px 10px 0px rgba(50, 50, 50, 0.53);
-    -moz-box-shadow: 0px 3px 10px 0px rgba(50, 50, 50, 0.53);
-    box-shadow: 0px 3px 10px 0px rgba(50, 50, 50, 0.53);
+.panell {
+    padding: 10px;
+    width: 300px;
 }
 
 .Prim {
@@ -197,9 +192,7 @@ a {
     border-right-width: 1px;
     border-style: solid;
     border-top-color: chartreuse;
-    border-left-color: #999;
-    border-right-color: #999;
-    border-bottom-color: #999;
+    border-color: #999;
     padding: 30px;
     width: 120px;
     outline-offset: none;
@@ -214,7 +207,7 @@ a {
     animation-name: TransitionMenu;
     animation-duration: 0.5;
 
-
+    background-color: rgba(255,255,255,.5);
     border-top-width: 10px;
     border-bottom-width: 1px;
     border-left-width: 1px;
@@ -237,8 +230,7 @@ a {
     animation-name: TransitionMenuReverse;
     animation-duration: 1;
 
-
-    border-top-width: 10px;
+background-color: rgba(255,255,255,.1);    border-top-width: 10px;
     border-bottom-width: 1px;
     border-left-width: 1px;
     border-right-width: 1px;

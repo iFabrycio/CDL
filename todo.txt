@@ -22,4 +22,5 @@
 + Cadastro de livro
 + Status dos alunos
 + Status dos livros
+- Alterar senha, mandar senha para o Email, 
 

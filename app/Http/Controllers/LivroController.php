@@ -54,6 +54,7 @@ class LivroController extends Controller
         if(empty($result)){
             $livros = Livro::all();
             $livros = Livro::with('autor','editora','genero')
+                
                 ->orderBy($order,'asc')
                 ->get(); //funcionou aqui
             $trigger = 1;

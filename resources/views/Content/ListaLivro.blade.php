@@ -34,7 +34,6 @@ Lista de Livros
         </form>
     </fieldset>
 </div>
-
 <div class="poscentralized">
 
     <div class="">
