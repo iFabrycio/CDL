@@ -52,8 +52,14 @@ Cadastrar Aluno
                         <input name="uf_natural" placeholder="UF Natural" class="form-control">
                         <label for="nome_mae">Nome da mãe:*</label>
                         <input name="nome_mae" placeholder="Nome da Mae" class="form-control">
+                        <label for="iCPF_mae">CPF da Mãe:*</label>
+                        <input name="CPF_mae" id="iCPF_mae" placeholder="CPF da mãe" class="form-control">
                         <label for="nome_pai">Nome do Pai:</label>
                         <input name="nome_pai" placeholder="Nome do Pai" class="form-control">
+                        <label for="iCPF_pai">CPF da Pai</label>
+                        <input name="CPF_pai" id="iCPF_pai" placeholder="CPF do pai" class="form-control">
+                        <hr/>
+                        <label class="alert alert-info">É importante pôr um responsável mesmo que os campos acima estejam preenchidos</label>
                         <hr/>
                         <label for="nome_resp">Nome do responsável:</label>
                         <input name="nome_resp" placeholder="Nome do Responsável" class="form-control">

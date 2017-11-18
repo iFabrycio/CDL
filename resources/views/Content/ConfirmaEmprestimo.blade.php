@@ -17,10 +17,13 @@ Empréstimo de Livros
     <div class="panel panel-heading" align="center">Confirmar empréstimo</div>
             <div class="padding">
         
-            <input type="hidden" class="form-control" value="{{$livro->codLivro}}" name="codLivro">
+            <input type="hidden" class="form-control" value="{{$livro->codLivro}}" name="CodigoLivro">
+                
+            <input type="hidden" class="form-control" value="{{$livro->NumeroPaginas}}" name="Pages">
             
-            <label for="CPF">Insira seu CPF</label>
-            <input class="form-control" id="CPF" name="CPF" placeholder="Digite seu CPF aqui"/>
+            <label for="CPF">Insira o CPF</label>
+               
+            <input class="form-control" id="CPF" name="CPF" placeholder="Digite o CPF aqui"/>
             <br/>
             <input class="btn btn-success" type="submit" value="Emprestar">
         </div>
@@ -29,5 +32,6 @@ Empréstimo de Livros
         </form>
 </div>
 </div>
+  
 @stop
 

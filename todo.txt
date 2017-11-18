@@ -2,10 +2,10 @@
 + Centralizar o Auth
 + Fazer formulários dos dois botões do sub menu Cadastro
 + Mudar logo do footer
-- Configurar barra de pesquisa para Real Time
++ Configurar barra de pesquisa para Real Time
 + Configurar botão Listas
 - Fazer lógicas para Reserva
-- Fazer lógicas para Devolução
++ Fazer lógicas para Devolução
 + Estilizar o Auth
 + Estiliz\ar Menu de Confirmação de Login
 - Configurar Middleware do menu principal
@@ -14,4 +14,12 @@
 + Configurar fonte ROBOTO
 + to fazendo uma request - configurando a form de aluno
 + terminar lógica do livroForm
++ Emprestimo
++ Devolução
++ Multa
++ Reserva
++ Cadastro de aluno
++ Cadastro de livro
++ Status dos alunos
++ Status dos livros
 

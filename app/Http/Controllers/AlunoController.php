@@ -10,6 +10,7 @@ use Request;
 use App\Http\Requests\AlunoRequest;
 use App\Http\Requests\LivroRequest;
 use Redirect;
+use Session;
 
 
 class AlunoController extends Controller
@@ -21,10 +22,11 @@ class AlunoController extends Controller
         if(empty($order)){
             $order = 'IdAluno';
         }
+       
         
         if(empty($result)){ //Se não tiver nada na pesquisa este If retornará todos os dados.
         
-            $aluno = Aluno::all();
+
             $aluno = DB::table('aluno')
                 ->orderBy( $order , 'asc')
                 ->get();
@@ -71,7 +73,7 @@ class AlunoController extends Controller
         $aluno =Aluno::find($IdAluno);
         $aluno ->delete();  
         return redirect()
-            ->action('MainController@ListaAluno');
+            ->action('AlunoController@ListaAluno');
         
     }  
     public function detailAluno($IdAluno){
@@ -90,10 +92,12 @@ class AlunoController extends Controller
        $aluno = Aluno::create($request ->all());
        $aluno->save();
         
+        Session::flash('mensagem', 'Aluno cadastrado com sucesso');
         
             return redirect()
                 ->action('MainController@index');
                
     }
+    
       
 }

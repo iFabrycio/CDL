@@ -6,12 +6,14 @@ use App\Livro;
 use App\Genero;
 use App\Editora;
 use App\Autor;
+use App\Multa;
 
 
 use DB;
 use Request;
 use App\Http\Requests\AlunoRequest;
 use App\Http\Requests\LivroRequest;
+use Carbon\Carbon;
 use Redirect;
 
 
@@ -24,6 +26,8 @@ class MainController extends Controller
         $livros = Livro::all();
         $result = Request::input('Pesquisa');
         
+
+               
         
         if(empty($result)){
             $tr = 0;
@@ -67,6 +71,7 @@ class MainController extends Controller
             ]);
             }
         }
+        
     
     }
     public function RedirectToHT(){
@@ -77,5 +82,48 @@ class MainController extends Controller
     } 
     public function ListaMenu(){
         return view('Content.ListaMenu');
-    }    
+    }  
+    public function Historico(){
+        
+        
+        return view('Content.Historico');
+    }
+    public function Reserva($id){
+        $id = Livro::find($id);
+        return view('Content.Reserva',['id'=>$id->codLivro]);
+        
+    }
+    public function ReservarLivro(){
+        $codLivro = Request::input('codLivro');
+        $CPF = Request::input('CPF');
+        $hoje = Carbon::today();
+        $ProxSemana = $hoje->addWeek();
+        
+        $isBloqueado = Aluno::where('CPF',$CPF)->get()->first();
+        
+        
+        
+        
+        if($isBloqueado -> StatusAluno == 2){
+            Session::flash('mensagemError','Aluno bloqueado');
+            return redirest()
+                ->action('MainController@index');
+        }
+        
+       DB::table('reserva')
+           ->insert([
+                'codLivro' => $codLivro,
+                'CPF' => $CPF,
+                'DataReserva' => $hoje,
+                'DataLimite' => $ProxSemana,
+           ]);
+        DB::table('livro')
+                    ->where('codLivro',$codLivro)
+                    ->update(['isReserved' => 1]);
+        
+        Session::flash('mensagem','Livro Reservado com sucesso');
+            return redirect()
+                ->action('MainController@index');
+
+    }
 }

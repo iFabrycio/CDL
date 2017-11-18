@@ -25,6 +25,7 @@
                 <option value="IdAluno">Id</option>
                 <option value="nome">Nome</option>
                 <option value="CPF">CPF</option>
+                <option value ="StatusAluno">Status do aluno</option>
                 </select>
             </div>
             <div class="OptionArea">
@@ -44,15 +45,34 @@
                 <th>Aluno</th>
                 <th>Data de Nascimento</th>
                 <th>CPF</th>
+                <th>Status</th>
                 <th>Opções</th>
             </tr>
 
             @foreach($aluno as $a)
-            <tr>
+            @if($a->StatusAluno == 2)
+            <tr class = "danger">
+            @else
+            @if($a->StatusAluno == 1)
+                <tr class = "info">
+            @else
+                <tr class = "success">
+            @endif
+            @endif
                 <td>{{$a -> IdAluno}}</td>
                 <td>{{$a -> nome}}</td>
                 <td>{{$a -> datnasc}}</td>
                 <td>{{$a -> CPF}}</td>
+                    @if($a -> StatusAluno == 2)
+                    <td>Bloqueado</td>
+                    @else @if($a ->StatusAluno == 1)
+                    <td>Com livro</td>
+                    @else @if($a ->StatusAluno == 0)
+                    <td>Livre</td>
+                    @endif
+                    @endif
+                    @endif
+                    
                 <td>
                     <a href="{{action('AlunoController@removeAluno',$a->IdAluno)}}">
                     <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>

@@ -127,6 +127,7 @@ a{
     padding:20px;
     position: fixed;
     bottom: 0;
+    left: 0;
 }
 .BoxButton{
     
@@ -269,6 +270,7 @@ ul li{
     border-left-style: solid;
     border-left-width: 2px;
     border-left-color: chartreuse;
+    
     height: 90%;
     width: 50%;
     position: absolute;
@@ -283,10 +285,13 @@ ul li{
 }
 .sizeEmprestimo{
     width:400px;
-    margin-top:;
+    
     padding:20px;
 }
 .padding{
     padding:20px;
+}
+.container{
+    margin-top: 15px;
 }
 

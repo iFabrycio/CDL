@@ -46,15 +46,25 @@ Lista de Livros
                 <th>Autor</th>
                 <th>Genero</th>
                 <th>Código do livro</th>
+                <th>Status</th>
                 <th>Opções</th>
             </tr>
             @foreach($livro as $l)
-            <tr>
+            @if($l -> StatusLivro == 1)
+            <tr class = "info">
+                @else
+                <tr>
+                @endif
                 <td>{{$l->IdLivro}}</td>
                 <td>{{$l->Titulo}}</td>
                 <td>{{$l->autor->nome}}</td>
                 <td>{{$l->genero->nome}}</td>
                 <td>{{$l->codLivro}}</td>
+                @if($l->StatusLivro == 1)
+                    <td>Emprestado</td>
+                @else
+                    <td>Livre</td>
+                @endif
                 <td>
                 <a href="{{action('LivroController@RemoveLivro',$l->IdLivro)}}"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
                &nbsp; 

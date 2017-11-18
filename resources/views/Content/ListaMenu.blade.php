@@ -27,6 +27,7 @@ Lista
             </figcaption>
         </figure>
     </div>
+     
     <div class="BoxButton" onclick="RedirectToListLivro()" style="border-bottom-right-radius: 5px; border-top-right-radius: 5px; ">
         <figure class="figure">
             <div class="poscentralized">

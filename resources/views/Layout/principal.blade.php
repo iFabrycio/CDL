@@ -44,6 +44,18 @@
         function MainMenu(){
             location.href = "/home";
         }
+        function Devolucao(){
+            location.href = "/Devolucao";
+        }
+        function Historico(){
+            location.href = "/Historico";
+        }
+        function StatusAluno(){
+            location.href = "/lista/status/aluno";
+        }
+        function Reserva(){
+            location.href = "/Reserva";
+        }
         
         function LogoutMethod(){
             event.preventDefault();
@@ -59,7 +71,7 @@
   <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
         <div class="poscentralized">
-            <div class="absolute positioned" onclick = "MainMenu()">
+            <div class="absolute positioned" style="cursor:pointer;" onclick = "MainMenu()">
                     <ul class="nav navbar-nav">
                         <h3>HT Clube</h3>
                     </ul>

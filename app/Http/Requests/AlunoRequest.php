@@ -38,6 +38,8 @@ class AlunoRequest extends FormRequest
             'tel_fixo'      => 'required|max:11',
             'escola_origem' => 'required',
             'serie'         => 'required',
+            'CPF_pai'       => 'required|size:11',
+            'CPF_mae'       => 'required|size:11',
             
         ];
         
@@ -49,6 +51,8 @@ class AlunoRequest extends FormRequest
             'CPF.required'         =>  'O campo CPF não pode ficar vazio',
             'CPF.unique'           =>  'Este CPF é o mesmo de um dos nossos alunos, você já não foi cadastrado?',
             'CPF.size'             =>  'O campo CPF deve conter :size digitos',
+            'CPF_mae.size'         =>  'O campo CPF da mãe deve conter :size digitos',
+            'CPF_pai.size'         =>  'O campo CPF do pai deve conter :size digitos',
             'email.required'       =>  'O campo :attribute não pode ficar vazio',
             'turno.required'       =>  'O campo :attribute não pode ficar vazio',
             'nome_mae.required'    =>  'O campo :attribute não pode ficar vazio',

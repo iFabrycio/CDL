@@ -4,16 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Emprestimo extends Model
+class Reserva extends Model
 {
-    protected $table = 'emprestimo';
+    protected $table = 'reserva';
     
     public $timestamps = false;
     
-    protected $guarded = ['_token'];
-    
     protected $primarykey = 'Id';
-    
-    
-    
+    protected $dates = ['DataReserva'];
 }

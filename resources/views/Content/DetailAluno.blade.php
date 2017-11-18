@@ -15,7 +15,9 @@
         <li><b>E-mail:</b> {{$aluno -> email}}</li> 
         <li><b>Natural de:</b> {{$aluno ->naturalidade}} - {{$aluno -> uf_natural}}</li>
         <li><b>Nome da mãe:</b> {{$aluno ->nome_mae}}</li>
+        <li><b>CPF da mãe:</b>{{$aluno ->CPF_mae}}</li>
         <li><b>Nome do pai:</b> {{$aluno ->nome_pai}}</li>
+        <li><b>CPF da pai:</b>{{$aluno ->CPF_pai}}</li>
         <li><b>Nome do responsável:</b>{{$aluno ->nome_resp }}</li>
         <li><b>CPF do Responsável:</b> {{$aluno ->cpf_resp}}</li>
     </ul>
