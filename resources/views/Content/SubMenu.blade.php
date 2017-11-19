@@ -12,7 +12,7 @@
 <br/>
 <br/>
 <div class="poscentralized">
-    <div class="BoxButton" onclick="RedirectToFormAluno()" style="border-right:none; border-bottom-left-radius: 5px; border-top-left-radius: 5px; ">
+    <a href="/cadastro/Aluno"><div class="BoxButton" style="border-right:none; border-bottom-left-radius: 5px; border-top-left-radius: 5px; ">
         <figure class="figure">
             <div class="poscentralized">
                 <i class="fa fa-address-book fa-5x"></i>
@@ -23,7 +23,8 @@
             </figcaption>
         </figure>
     </div>
-    <div class="BoxButton" onclick="RedirectToFormLivro()" style="border-bottom-right-radius: 5px; border-top-right-radius: 5px; ">
+    </a>
+    <a href="/cadastro/Livro"><div class="BoxButton"  style="border-bottom-right-radius: 5px; border-top-right-radius: 5px; ">
         <figure class="figure">
             <div class="poscentralized">
                 <i class="fa fa-book fa-5x"></i>
@@ -34,5 +35,7 @@
 
         </figure>
     </div>
+    </a>
 </div>
+
 @stop

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta charset="iso-8859-1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta @yield( 'redirect')>
+    <meta @yield('redirect')>
 
     <link type="text/css" rel="stylesheet" href="/css/app.css" />
     <link type="text/css" rel="stylesheet" href="/css/font-awesome.min.css" />
@@ -16,56 +16,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <style type="text/css">
-
-
-    </style>
 
     <title>HT Clube - @yield('title')</title>
     <script type="text/javascript">
-        function MenuCadastro() {
-            location.href = "/cadastro";
-        }
-
-        function RedirectToFormAluno() {
-            location.href = "/cadastro/Aluno";
-        }
-
-        function RedirectToFormLivro() {
-            location.href = "/cadastro/Livro";
-        }
-
-        function RedirectToListAluno() {
-            location.href = "/lista/Aluno";
-        }
-
-        function RedirectToListLivro() {
-            location.href = "/lista/Livro";
-        }
-
-        function MenuLista() {
-            location.href = "/lista/menu";
-        }
-
-        function MainMenu() {
-            location.href = "/home";
-        }
-
-        function Devolucao() {
-            location.href = "/Devolucao";
-        }
-
-        function Historico() {
-            location.href = "/Historico";
-        }
-
-        function StatusAluno() {
-            location.href = "/lista/status/aluno";
-        }
-
-        function Reserva() {
-            location.href = "/Reserva";
-        }
 
         function LogoutMethod() {
             event.preventDefault();
@@ -86,16 +39,19 @@
 
 <body>
 
-    <div class="nabr navbar-default">
+      <div class="nabr navbar-default">
         <div class="collapse navbar-collapse topo" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
+            <a href="/home"> 
             <div class="poscentralized">
-                <div class="absolute positioned" style="cursor:pointer;" onclick="MainMenu()">
+               <div class="absolute positioned" style="cursor:pointer;">
                     <ul class="nav navbar-nav">
                         <h3>HT Clube</h3>
                     </ul>
                 </div>
+                   
             </div>
+                </a>
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
@@ -149,6 +105,9 @@
                                 {{ csrf_field() }}
                             </form>
                         </li>
+                        <li>
+                        <a href="/Alterar/senha">Alterar Senha</a>
+                        </li>
                     </ul>
                 </li>
                 @endif
@@ -160,8 +119,9 @@
 
 
 
-
     @yield('content')
+    
+    <!-- Footer -->
     <footer class="footer">
         <div align="center" id="footer">
             <a href="/RedirectToHT"><img src="/hacktown-marca.png" alt="Logo" class="logo" /></a>

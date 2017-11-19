@@ -52,7 +52,7 @@ Lista de Livros
             @if($l -> StatusLivro == 1)
             <tr class = "info">
                 @else
-                <tr>
+                <tr class="success">
                 @endif
                 <td>{{$l->IdLivro}}</td>
                 <td>{{$l->Titulo}}</td>

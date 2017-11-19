@@ -17,7 +17,7 @@ Route::get('/lista/menu','MainController@ListaMenu');
 Route::get('/Historico','MainController@Historico');
 Route::get('/Reserva/{id}','MainController@Reserva');
 Route::post('/Reservado','MainController@ReservarLivro');
-
+Route::get('/Alterar/senha','MainController@Alterarsenha');
 Route::get('/Admin/painel','MainController@AdminView');
 
 //Auth::routes();
@@ -48,7 +48,6 @@ Route::get('/', 'MainController@index')->name('home');
 
 //Rotas do controller AlunoController
 
-Route::get('/lista/status/aluno','AlunoController@StatusAluno');
 Route::get('/lista/Aluno','AlunoController@ListaAluno');
 Route::get('/lista/Aluno/Remover/{IdAluno}','AlunoController@removeAluno');
 Route::get('/lista/Aluno/Detalhes/{idAluno}','AlunoController@detailAluno');

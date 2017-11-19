@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 
-
+ 
 /* Personalização do Scroll da admin view */
 .ScrollStyle::-webkit-scrollbar-track {
     background-color: #dad7d7;
@@ -15,23 +15,22 @@
 .ScrollStyle::-webkit-scrollbar-thumb {
     background: chartreuse;
 }
-/*Fim da personalização*/
 
 
-/*Definições gerais*/
 body {
     font-family: 'roboto';
     background: url(/background.jpg);
 }
 
 a {
-    text-decoration-color: white;
+    text-decoration: none !important;
+    color: #333 !important;
 }
 
-/*Fim das definições*/
-
-
-
+.panell { /* Login.blade.php*/
+    padding: 10px;
+    width: 300px;
+}
 
 @-moz-keyframes TransitionMenu {
     from {
@@ -115,22 +114,18 @@ a {
         
     }
 }
-.BoxLogin {
 
-    border-color: #999;
-    margin-top: 100px;
-}
 
+/* não é atributo de nehuma classe no projeto
 .MainNav {
     -webkit-box-shadow: 0px 3px 10px 0px rgba(50, 50, 50, 0.53);
     -moz-box-shadow: 0px 3px 10px 0px rgba(50, 50, 50, 0.53);
     box-shadow: 0px 3px 10px 0px rgba(50, 50, 50, 0.53);
 }
+*/
 
-.panell {
-    padding: 10px;
-    width: 300px;
-}
+
+/* não é atributo de nehuma classe no projeto
 
 .Prim {
     width: 200px;
@@ -140,6 +135,7 @@ a {
 
     width: 100px;
 }
+*/
 
 .poscentralized {
 
@@ -159,20 +155,21 @@ a {
     bottom: 0;
     left: 0;
 }
+/* não está funcionando ainda
 #footer:hover{
      -webkit-animation-name: footer;
-    /* Safari 4.0 - 8.0 */
+    
     -webkit-animation-duration: 0.5s;
-    /* Safari 4.0 - 8.0 */
+
     animation-name: footer;
     animation-duration: 0.5;
     padding: 20px;
 }
-#footer:not (:hover){
+#footer:not(:hover){
      -webkit-animation-name: footerReverse;
-    /* Safari 4.0 - 8.0 */
+   
     -webkit-animation-duration: 0.5s;
-    /* Safari 4.0 - 8.0 */
+   
     animation-name: footerReverse;
     animation-duration: 0.5;
     padding: .5%;
@@ -180,6 +177,7 @@ a {
 .logo:hover{
     width: 10%;
 }
+*/
 
 
 
@@ -230,7 +228,8 @@ a {
     animation-name: TransitionMenuReverse;
     animation-duration: 1;
 
-background-color: rgba(255,255,255,.1);    border-top-width: 10px;
+background-color: rgba(255,255,255,.1);
+    border-top-width: 10px;
     border-bottom-width: 1px;
     border-left-width: 1px;
     border-right-width: 1px;
@@ -243,76 +242,50 @@ background-color: rgba(255,255,255,.1);    border-top-width: 10px;
     text-align: center;
 }
 
-.align-text {
+.align-text { /* usado nos botões principais*/
     margin: auto;
 }
 
-.DashBoard {
+.DashBoard { /*home.blade.php*/
     background-color: lightgrey;
     opacity: border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     border-width: 0.5px;
 }
 
-.absolute {
+.absolute { /*principal.blade.php*/
     position: absolute;
 }
 
-.positioned {
+.positioned { /*principal.blade.php*/
     margin-top: 20px;
 }
 
-.widthed {
+.widthed { /*AdminPanel.blade.php, LivroForm.blade.php, Alunoform.blade.php*/
     width: 300px;
 }
 
-.group1 {
+.group1 { /*Livroform.blade.php*/
     width: 50%;
     float: left;
 }
 
-.group2 {
+.group2 { /*Livroform.blade.php*/
     width: 50%;
     float: right;
 }
 
-.logo {
+.logo { /*principal.blade.php*/
     width: 7%;
 }
 
-.sidebar {
-    position: absolute;
-    width: 200px;
-    height: 95%;
-    background-color: #444;
-    color: white;
-}
-
-.BoxMenu {
-    padding: 15px;
-}
-
-actived,
-.BoxMenu:hover {
-    color: #444;
-    background-color: chartreuse;
-}
-
-.optionsMenu {
+.optionsMenu { /*ListaAluno.blade.php, Listalivro.blade.php*/
     display: flex;
     width: 100%;
     text-align: center;
 }
 
-.OptionArea {
-    padding: 5px;
-    width: 20%;
-    display: flex;
-    align-self: flex-start;
-    text-align: center;
-}
-
-.BoxDetails {
+.BoxDetails { /*DatailAluno.blade.php, DetailLivro.blade.php*/
     padding: 30px;
     display: flex;
     align-self: flex-start;
@@ -323,34 +296,33 @@ ul li {
     list-style: none;
 }
 
-.content-menu {
+.content-menu { /*Passa o menu principal para o lado*/
     margin-right: 50%;
     align-items: center;
     justify-content: center;
     display: flex;
 }
 
-.search-result {
+.search-result { /*Estilização do resultado no menu principal*/
     float: right;
     border-left-style: solid;
     border-left-width: 2px;
     border-left-color: chartreuse;
-
+    background-color: rgba(255,255,255,.8);
     height: 90%;
     width: 50%;
     position: absolute;
-    top: 50px;
+    top: 51px;
     left: 50%;
 }
 
-.search-result-list {
+.search-result-list { /*Estilização da lista de resultados no menu principal*/
     width: 100%;
     height: 15% !important;
 }
 
-.sizeEmprestimo {
+.sizeEmprestimo { /*ConfimaEmprestimo.blade.php, Devolução.blade.php, Reserva.blade.php*/
     width: 400px;
-
     padding: 20px;
 }
 
@@ -367,7 +339,7 @@ ul li {
     width: 800px;
 }
 
-.config-menu {
+.config-menu { /*AdminPanel.blade.php, Dias.blade.php*/
     padding: 100px;
     padding-top: 20px;
     padding-bottom: 0px;
@@ -381,11 +353,11 @@ ul li {
     overflow-y: scroll;
 }
 
-.optionlista {
+.optionlista {/*Pquena configuração na table de usuarios na tela de admin*/
     margin-top: 8px;
 }
 
-#lateral {
+#lateral { /*Menu lateral na tela de admin*/
 	padding:51px;
     
 	-moz-transition: all 0.5s ease;
@@ -405,7 +377,7 @@ ul li {
 
 
 
-.menu-active{
+.menu-active{ /*Menulateralativado*/
 	overflow-y:scroll;
 	-moz-transform: translate(370px, 0);
 		-webkit-transform: translate(370px, 0);
@@ -415,14 +387,23 @@ ul li {
     padding: 20px;
     
 }
-.buttonadicionar{
+.buttonadicionar{ /*Botão de adicionar usuário na tela de admin*/
     position: relative;
     margin-left: 73.2%;
     
 }
-.topo{
+.topo{ 
+/*    Configuração do navbar no principal.blade.php*/
     border-style: solid;
     border-width: 1px;
+    background-color: rgba(255,255,255,0.7) !important;
+}
+.jumbo{ /*Configuração do jumbotron no DetailAluno(Livro).blade.php*/
+    background-color: rgba(40,40,55,0.5)!important;
+    color: white !important;
+}
+.jumbo a{
+    color: white !important;
 }
 
 

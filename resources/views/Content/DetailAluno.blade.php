@@ -8,7 +8,7 @@
     Detalhes do aluno
 @endsection
 @section('content')
-<div class="jumbotron positioned"  >
+<div class="jumbotron jumbo positioned"  >
     <h2 align="center">{{$aluno->nome}}</h2>
     <div class="poscentralized">
         <div class="BoxDetails" >

@@ -11,7 +11,7 @@ Informações dos Livros
 
 @section('content')
 
-<div class="jumbotron">
+<div class="jumbotron jumbo">
     <div class="poscentralized">
         <h2>{{$livro->Titulo}}</h2>
     </div>

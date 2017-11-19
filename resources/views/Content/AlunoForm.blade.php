@@ -10,7 +10,7 @@ Cadastrar Aluno
 @section('content')
 
 <br/><br/>
-
+<!-- Espaço para exibição de mensagens de erro/sucesso -->
     @foreach ($errors ->all() as $error)
 <div class="poscentralized">
     <div class="alert alert-danger widthed" align="center">{{$error}}
@@ -18,22 +18,15 @@ Cadastrar Aluno
 </div>
     @endforeach
 
-
+<!-- Formulário em collapsible para cadastro de aluno -->
 <div class="poscentralized" align="center">
-
     <form class="form-horizontal" method="POST" action="/cadastro/Aluno/submit">
         {{ csrf_field() }}
-
-
-
-
-
         <div class="panel-group" style="width:300px;" id="accordion">
             <div class="panel panel-info" >
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
                     <div class="panel-heading">
                         <h4 class="panel-title" >
-
                             Sobre o aluno
                         </h4>
                     </div>
@@ -137,13 +130,5 @@ Cadastrar Aluno
         </div>
         <input class="btn btn-default" type="submit" value="Concluir" />
     </form>
-
 </div>
-
-
-
-
-@endsection
-@section('footer')
-<img src="hacktown-marca.png" alt="Logo" />
 @stop

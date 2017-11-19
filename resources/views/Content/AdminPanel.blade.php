@@ -3,7 +3,7 @@
     Voltar
 </a> @endsection @section('title') Configurações @endsection @section('content')
 
-
+<!-- Espaço paraexibição de mensagens de sucesso/erro -->
  @foreach ($errors ->all() as $error)
 <div class="poscentralized">
     <div class="alert alert-danger widthed" align="center">{{$error}}
@@ -27,14 +27,18 @@
 @endif
 </div>
 
+
+
+<!-- Tabela de visualização de usuários moderadores/administradores -->
 <div class="poscentralized">
     <div class=" config-menu-usuarios">
-
         <label>
                 <h3>Lista de Usuários:</h3>
-            </label>
+        </label>
         <p>Usuários Moderadores/Administradores </p>
-        <div class="btn btn-primary buttonadicionar " id="event-menu" onclick="MenuAdmin()">Adicionar usuário</div>
+        <div class="btn btn-primary buttonadicionar " id="event-menu" onclick="MenuAdmin()">
+            Adicionar usuário
+        </div>
 
 
         <div class="ScrollStyle">
@@ -71,7 +75,7 @@
     </div>
 
 </div>
-
+<!-- Menu lateral escondido para registro de usuários moderadores/Administradores -->
 <div id="lateral">
 
     <div class="boxpanel">

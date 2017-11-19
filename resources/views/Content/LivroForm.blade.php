@@ -8,7 +8,7 @@
 
 @section('content')
 
-
+ 
     @foreach ($errors ->all() as $error)
 <div class="poscentralized">
     <div class="alert alert-danger widthed" align="center">{{$error}}

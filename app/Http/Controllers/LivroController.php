@@ -25,11 +25,13 @@ use Session;
 class LivroController extends Controller
 {
     public function __construct(){
+        //Ativação do Middleware de autenticação e checagem de nivel de usuario
         $this->middleware('auth');
         $this->middleware('admincheck',['only' =>['RemoveLivro']]);
     }
     
     public function Livro(){
+        //Retorna a view de cadastro de autores, editoras, gêneros e livros
         $autores = Autor::all();
         $generos = Genero::all();
         $editora = Editora::all();
@@ -42,16 +44,19 @@ class LivroController extends Controller
         ]);
     }
     public function ListaLivro(){
-        
+        //Esta função busca livros no banco de dados
         $livros = Livro::all();
         $result = Request::input('Pesquisa');
         $order = Request::input('organizar');
         
         if(empty($order)){
+            //Ordem padrão
             $order = 'IdLivro';
         }
         
         if(empty($result)){
+            //Se o usuário não por nada no input de pesquisa
+            //não irá buscar por nada e nada aparecerá.
             $livros = Livro::all();
             $livros = Livro::with('autor','editora','genero')
                 
@@ -64,7 +69,8 @@ class LivroController extends Controller
             ]);
             
         } else {
-            
+            //Caso ele pesquise, o gatilho $trigger retornara 'true'
+            //permitindo que o usuário veja o resultado da pesquisa
             $livros = Livro::where('Titulo','like','%'.$result.'%')
                 ->orWhere('codLivro','like','%'.$result.'%')
                 
@@ -79,6 +85,7 @@ class LivroController extends Controller
             ]);
                 
             } else {
+                //Parte em estudo, porém se vê desnecessária.
                 $trigger = 0;
                 $livros = Livro::all();
                 $livros = Livro::with('autor','editora','genero')
@@ -96,7 +103,7 @@ class LivroController extends Controller
   
     public function LivroSubmit(LivroRequest $request ){
         
-        
+        //Cadastra os livros
 
         $livro = new Livro;
         $livro ->IdGenero = Request::input('IdGenero');
@@ -108,6 +115,7 @@ class LivroController extends Controller
     } 
     
     public function autorCadastrar(){
+        //Cadastra os autores
         $autor = new Autor;
         $autor->nome = Request::input('nome');
         $autor->save();
@@ -117,6 +125,7 @@ class LivroController extends Controller
         return redirect()->action('LivroController@Livro');
     }
     public function editoraCadastrar(){
+        //Cadastra as editoras
         $editora = new Editora;
         $editora ->nome = Request::input('nome');
         $editora ->save();
@@ -127,6 +136,7 @@ class LivroController extends Controller
 
     }
     public function generoCadastrar(){
+        //Cadastra os generos
         $genero = new Genero;
         $genero ->nome = Request::input('nome');
         $genero ->save();
@@ -137,17 +147,20 @@ class LivroController extends Controller
     }
     
     public function RemoveLivro($IdLivro){
+        //Remove o livro do banco de dados
         $livro = Livro::find($IdLivro);
         $livro->delete();
         return redirect()
             ->action('LivroController@ListaLivro');
     }
     public function DetailLivro($IdLivro){
+        //Mostra os detalhes de um livro
         $livro = Livro::find($IdLivro);
         
         return view('Content.DetailLivro',['livro'=>$livro]);
     }
     public function EmprestaLivro($IdLivro){
+        //Direciona para a tela de confirmação de emprestimo
         $livro = Livro::find($IdLivro);
         
         return view('Content.ConfirmaEmprestimo',['livro'=>$livro,]);
@@ -168,11 +181,13 @@ class LivroController extends Controller
    
       
 
-        if(empty($CPFAluno)){ //Se o resultado da procura pelo CPF for vazio volta para a página inicial
+        if(empty($CPFAluno)){ 
+            //Se o resultado da procura pelo CPF for vazio volta para a página inicial
             Session::flash('mensagemError','Aluno não cadastrado ou CPF incorreto');
             return redirect()
                 ->action('MainController@index');
-        } else{ //Se não...
+        } else{ 
+            //Se não...
 
             $aluno = Aluno::where('cpf', $CPF)->get()->first();
             $livro = Livro::where('codlivro',$codLivro)
@@ -181,7 +196,7 @@ class LivroController extends Controller
             
             
             if($aluno->StatusAluno == 2){
-                
+                //Se o aluno estiver bloqueado por entregar outrolivro atrasado, ele retorna a mensagem
                 Session::flash('mensagemError','Aluno bloqueado por devolver um livro atrasado');
                 return redirect()
                     ->action('MainController@index');
@@ -189,37 +204,43 @@ class LivroController extends Controller
             
             
             if($aluno->StatusAluno == 1){
+                //Se o aluno já tenha um livro, ele retorna a mensagem
                Session::flash('mensagemError','O aluno já tem um livro emprestado');
                 return redirect()
                     ->action('MainController@index');
             }else{
                 if($livro->StatusLivro == 1){
+                    
+                //Se o livro estiver emprestado a outr pessoa, ele retorna a mensagem
                     Session::flash('mensagemError','Este livro está emprestado');
                     return redirect()
                         ->action('MainController@index');
                 }else{
-                if($Pages <= 200){ 
-                    $datalimite = $datahoje->addWeek();
+                    if($Pages <= 200){ 
+                        //Determina a quantidade de dias máximos para //empréstimo para livros maiores ou menores //que 200 páginas
+                        $datalimite = $datahoje->addWeek();
             
-                }else{
-                    $datalimite = $datahoje->addWeeks(2); 
+                    }else{
+                        $datalimite = $datahoje->addWeeks(2); 
                 
-                }
+                    }
                     
-                    if($livro -> isReserved == 1){//Se está reservado, verifica se o cpf do aluno bate com o da tabela
-                $reserved = DB::table('reserva')
-                    ->where([
-                    ['codLivro', $codLivro],
-                    ['CPF', $CPF]
-                ])
-                    ->get()
-                    ->first();
-                if(count($reserved)>0){ //Se houver ele será excluído do banco e o isReserved do Livro retorna a 0.
+                    if($livro -> isReserved == 1){
+                        //Se está reservado, verifica se o cpf do aluno condiz com o da tabela
+                        $reserved = DB::table('reserva')
+                            ->where([
+                                ['codLivro', $codLivro],
+                                ['CPF', $CPF]
+                            ])
+                            ->get()
+                            ->first();
+                if(count($reserved)>0){ 
+                    //Se houver ele será excluído do banco e o isReserved do Livro retorna a 0.
                     DB::table('reserva')
                     ->where([
                     ['codLivro', $codLivro],
                     ['CPF', $CPF]
-                ])
+                            ])
                    ->delete();
                     
                     DB::table('livro')
@@ -227,6 +248,7 @@ class LivroController extends Controller
                         ->update(['isReserved' =>0]);
                     
                 }else{
+                    //Se não obtiver sucesso, retornará a mensagem de erro
                     Session::flash('mensagemError','Este livro está reservado à outra pessoa');
                     return redirect()
                         ->action('MainController@index');
@@ -272,16 +294,16 @@ class LivroController extends Controller
         
     }
     public function Devolucao(){
-        
+        //retorna a view que possibilita a devolução de livros
         return view('Content.Devolucao');
         }
     public function DevolverLivro(){
-        
+        //Função para devolução de livros
         $codLivro = Request::input('codLivro');
         $CPFAluno = Request::input('CPFAluno');
         $date = Carbon::today();
         
-        
+        //Verifica se o livro está emprestado
         $result = DB::table('emprestimo')
                 ->where([
                     ['CodigoLivro', $codLivro],
@@ -292,14 +314,21 @@ class LivroController extends Controller
 
         
        if(count($result)==0){
+           //Se não estiver
            Session::flash('mensagem','Livro não emprestado.');
            return redirect()
                ->action('LivroController@Devolucao');
            
        } else{
            //Se a data de entrega for depois da data limite para entrega
+           
+           
            //será mudado o status do aluno para 2(bloqueado)
+           
+           
            //e será gravado seu bloqueio, o dia em que foi feito e o dia em que será liberado
+           
+           
            if($date > $result->DataDevolucao){
                
                $datadevolucao = Carbon::createFromFormat('Y-m-d', $result->DataDevolucao);
@@ -315,8 +344,10 @@ class LivroController extends Controller
                
                $multa = $value * $dias->DiasMulta;
                
-                 if ($multa == 0){ //estabeleceu o minimo de 2 dias
-                    
+                 if ($multa == 0){ 
+                     //Está condição determina o multiplicador de dias de bloqueio
+                    //estabeleceu o minimo de 2 dias
+                    //Está parte está sendo estudada, atualmente aparenta ser desnecessária
                      $datamultafim = $datahoje->addDays(2); 
                      
                  }else{
@@ -324,12 +355,15 @@ class LivroController extends Controller
                      $datamultafim = $datahoje->addDays($multa);
                      
                  }
+               //Variavel de captura da data atual
                $hoje = Carbon::today();
                
+               //atualização da tabela aluno
                DB::table('aluno')
                     ->where('CPF', $CPFAluno)
                     ->update(['StatusAluno' =>2]);
                
+               //inserção na tabela multa
                DB::table('multa')
                     ->insert([
                         'CPFAluno' => $CPFAluno,
@@ -337,17 +371,19 @@ class LivroController extends Controller
                         'dataMultaFim' => $datamultafim,
                     ]);
                
+               //exclusão de dados da tabela emprestimo
                 DB::table('emprestimo')
                     ->where([
                     ['CodigoLivro', '=', $codLivro],
                     ['CPFAluno', '=', $CPFAluno]
                ])
                     ->delete();
-               
+               //atualização da tabela livro
                DB::table('livro')
                    ->where('codLivro',$codLivro)
                    ->update(['StatusLivro' =>0]);
                
+               //gravaçãono historico
                $aluno = Aluno::where('cpf', $CPFAluno)->get()->first();
                $hist = new Historico;
                 $hist->Atividade = "Devolveu um livro atrasado, bloqueado até ".$datamultafim;
@@ -356,28 +392,34 @@ class LivroController extends Controller
                 $hist ->CodLivro = $codLivro;
                 $hist ->save();
                
+               //envio de mensagem ao usuário
                Session::flash('mensagem','Livro devolvido, aluno bloqueado por devolve-lo atrasado');
                 return redirect()
                ->action('LivroController@Devolucao');
                
                    
            }else{
+            //Se Livro for devolvido antes da data limite
           
+               
+               //atualização da tabela aluno.
            DB::table('aluno')
             ->where('CPF', $CPFAluno)
             ->update(['StatusAluno' =>0]);
            
+               //atualização da tabela livro
            DB::table('livro')
                ->where('codlivro',$codLivro)
                ->update(['StatusLivro' =>0]);
            
-           
+               //Exclusão dos dados da tabela empréstimo
            DB::table('emprestimo')
                ->where([
                     ['CodigoLivro', '=', $codLivro],
                     ['CPFAluno', '=', $CPFAluno]
                ])->delete();
            
+               //Gravação no historico
               $aluno = Aluno::where('cpf', $CPFAluno)->get()->first();
                $hist = new Historico;
                 $hist->Atividade = "Devolveu um livro emprestado";
@@ -386,6 +428,8 @@ class LivroController extends Controller
                 $hist ->CodLivro = $codLivro;
                 $hist ->save();
            
+               
+               //mensagem retornada ao usuário
            Session::flash('mensagemSuccess','Livro devolvido.');
            return redirect()
                ->action('LivroController@Devolucao');

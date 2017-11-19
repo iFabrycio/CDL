@@ -10,7 +10,7 @@ Empréstimo de Livros
 @section('content')
 <div class="poscentralized">
 <div class="sizeEmprestimo">
-
+    
     <form class="form-default form-group"  method ="post" action="{{action('LivroController@Emprestimo')}}"align="center">
         {{ csrf_field() }}
 <div class="panel panel-default ">

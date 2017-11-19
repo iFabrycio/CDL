@@ -4,11 +4,11 @@
 + Mudar logo do footer
 + Configurar barra de pesquisa para Real Time
 + Configurar botão Listas
-- Fazer lógicas para Reserva
++ Fazer lógicas para Reserva
 + Fazer lógicas para Devolução
 + Estilizar o Auth
 + Estiliz\ar Menu de Confirmação de Login
-- Configurar Middleware do menu principal
++ Configurar Middleware do menu principal
 + Estilizar tela de login
 + Achar uma boa posição para o Auth
 + Configurar fonte ROBOTO
@@ -22,5 +22,6 @@
 + Cadastro de livro
 + Status dos alunos
 + Status dos livros
-- Alterar senha, mandar senha para o Email, 
+- Alterar senha, mandar senha para o Email,
++ Excluir classes inuteis.
 
