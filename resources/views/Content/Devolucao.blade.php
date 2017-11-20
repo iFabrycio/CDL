@@ -7,13 +7,13 @@
 @section('content')
 
 <div class="poscentralized">
-<div class="sizeEmprestimo">
-
+<div class="formulario">
+    <h3 align=center>Devolução de livro</h3>
     <form class="form-default form-group"  method ="get" action="{{action('LivroController@DevolverLivro')}}" align="center">
         {{ csrf_field() }}
-<div class="panel panel-default ">
-    <div class="panel panel-heading" align="center">Devolver livro</div>
-            <div class="padding">
+
+
+           
         
             <label for = "iCod">Código do livro</label>
                 <input class="form-control" id="iCod" name = "codLivro" placeholder="Digite o código do livro" value="{{old('codLivro')}}"/>
@@ -23,16 +23,14 @@
             <input class="form-control" id="CPF" name="CPFAluno" placeholder="Digite seu CPF aqui"/>
             <br/>
             <input class="btn btn-success" type="submit" value="Devolver">
-        </div>
-    </div>
+
+    
 
         </form>
-</div>
-</div>
-<div class="container poscentralized">
+
         <div class="row">
             @if(Session::has('mensagem'))
-            <div class="alert alert-warning">
+            <div class="alert alert-warning" align=center>
             <a href="#" class="close" data-dismiss="alert" aria-label="close"> &nbsp; &times;</a>
                 {{Session::get('mensagem')}}
             </div>
@@ -45,6 +43,10 @@
             @endif
         </div>
     </div>
+    
+    </div>
+</div>
+
 
 
 @stop

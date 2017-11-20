@@ -154,6 +154,7 @@ a {
     position: fixed;
     bottom: 0;
     left: 0;
+    height: 10%;
 }
 /* não está funcionando ainda
 #footer:hover{
@@ -404,6 +405,13 @@ ul li {
 }
 .jumbo a{
     color: white !important;
+}
+.formulario{
+    width: 300px;
+    color: white;
+    padding: 20px;
+    height: 89%;
+    background-color: #444;
 }
 
 
