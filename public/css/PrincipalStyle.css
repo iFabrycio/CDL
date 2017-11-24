@@ -1,8 +1,10 @@
 @charset "UTF-8";
 
 
- 
+
+
 /* Personalização do Scroll da admin view */
+
 .ScrollStyle::-webkit-scrollbar-track {
     background-color: #dad7d7;
 }
@@ -27,7 +29,8 @@ a {
     color: #333 !important;
 }
 
-.panell { /* Login.blade.php*/
+.panell {
+    /* Login.blade.php*/
     padding: 10px;
     width: 300px;
 }
@@ -36,11 +39,11 @@ a {
     from {
         padding: 30px;
         width: 120px;
-        background-color: rgba(255,255,255,.1);
+        background-color: rgba(255, 255, 255, .1);
     }
 
     to {
-        background-color: rgba(255,255,255,.5);
+        background-color: rgba(255, 255, 255, .5);
         padding: 30px;
         width: 150px;
     }
@@ -51,14 +54,14 @@ a {
         padding: 30px;
         width: 120px;
         border-top-color: chartreuse;
-        background-color: rgba(255,255,255,.1);
+        background-color: rgba(255, 255, 255, .1);
     }
 
     to {
         padding: 30px;
         width: 150px;
         border-top-color: #40cb00;
-        background-color: rgba(255,255,255,.5);
+        background-color: rgba(255, 255, 255, .5);
     }
 }
 
@@ -67,11 +70,11 @@ a {
         padding: 30px;
         width: 150px;
         border-top-color: #40cb00;
-        background-color: rgba(255,255,255,.5);
+        background-color: rgba(255, 255, 255, .5);
     }
 
     to {
-        background-color: rgba(255,255,255,.1);
+        background-color: rgba(255, 255, 255, .1);
         padding: 30px;
         width: 120px;
         border-top-color: chartreuse;
@@ -82,38 +85,36 @@ a {
     from {
         padding: 30px;
         width: 150px;
-        background-color: rgba(255,255,255,.5);
-
+        background-color: rgba(255, 255, 255, .5);
     }
 
     to {
         padding: 30px;
         width: 120px;
-        background-color: rgba(255,255,255,.1);
+        background-color: rgba(255, 255, 255, .1);
     }
 }
 
 @keyframes footer {
     from {
         padding: .5%;
-        }
+    }
 
     to {
         padding: 20px;
-       
     }
 }
 
 @keyframes footerReverse {
     from {
-        padding:20px;
-        }
+        padding: 20px;
+    }
 
     to {
         padding: .5%;
-        
     }
 }
+
 
 
 /* não é atributo de nehuma classe no projeto
@@ -156,6 +157,8 @@ a {
     left: 0;
     height: 10%;
 }
+
+
 /* não está funcionando ainda
 #footer:hover{
      -webkit-animation-name: footer;
@@ -180,9 +183,6 @@ a {
 }
 */
 
-
-
-
 .BoxButton {
 
     border-top-width: 10px;
@@ -206,7 +206,7 @@ a {
     animation-name: TransitionMenu;
     animation-duration: 0.5;
 
-    background-color: rgba(255,255,255,.5);
+    background-color: rgba(255, 255, 255, .5);
     border-top-width: 10px;
     border-bottom-width: 1px;
     border-left-width: 1px;
@@ -229,7 +229,7 @@ a {
     animation-name: TransitionMenuReverse;
     animation-duration: 1;
 
-background-color: rgba(255,255,255,.1);
+    background-color: rgba(255, 255, 255, .1);
     border-top-width: 10px;
     border-bottom-width: 1px;
     border-left-width: 1px;
@@ -243,50 +243,60 @@ background-color: rgba(255,255,255,.1);
     text-align: center;
 }
 
-.align-text { /* usado nos botões principais*/
+.align-text {
+    /* usado nos botões principais*/
     margin: auto;
 }
 
-.DashBoard { /*home.blade.php*/
+.DashBoard {
+    /*home.blade.php*/
     background-color: lightgrey;
     opacity: border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     border-width: 0.5px;
 }
 
-.absolute { /*principal.blade.php*/
+.absolute {
+    /*principal.blade.php*/
     position: absolute;
 }
 
-.positioned { /*principal.blade.php*/
+.positioned {
+    /*principal.blade.php*/
     margin-top: 20px;
 }
 
-.widthed { /*AdminPanel.blade.php, LivroForm.blade.php, Alunoform.blade.php*/
+.widthed {
+    /*AdminPanel.blade.php, LivroForm.blade.php, Alunoform.blade.php*/
     width: 300px;
 }
 
-.group1 { /*Livroform.blade.php*/
+.group1 {
+    /*Livroform.blade.php*/
     width: 50%;
     float: left;
 }
 
-.group2 { /*Livroform.blade.php*/
+.group2 {
+    /*Livroform.blade.php*/
     width: 50%;
     float: right;
 }
 
-.logo { /*principal.blade.php*/
+.logo {
+    /*principal.blade.php*/
     width: 7%;
 }
 
-.optionsMenu { /*ListaAluno.blade.php, Listalivro.blade.php*/
+.optionsMenu {
+    /*ListaAluno.blade.php, Listalivro.blade.php*/
     display: flex;
     width: 100%;
     text-align: center;
 }
 
-.BoxDetails { /*DatailAluno.blade.php, DetailLivro.blade.php*/
+.BoxDetails {
+    /*DatailAluno.blade.php, DetailLivro.blade.php*/
     padding: 30px;
     display: flex;
     align-self: flex-start;
@@ -297,19 +307,21 @@ ul li {
     list-style: none;
 }
 
-.content-menu { /*Passa o menu principal para o lado*/
+.content-menu {
+    /*Passa o menu principal para o lado*/
     margin-right: 50%;
     align-items: center;
     justify-content: center;
     display: flex;
 }
 
-.search-result { /*Estilização do resultado no menu principal*/
+.search-result {
+    /*Estilização do resultado no menu principal*/
     float: right;
     border-left-style: solid;
     border-left-width: 2px;
     border-left-color: chartreuse;
-    background-color: rgba(255,255,255,.8);
+    background-color: rgba(255, 255, 255, .8);
     height: 90%;
     width: 50%;
     position: absolute;
@@ -317,12 +329,14 @@ ul li {
     left: 50%;
 }
 
-.search-result-list { /*Estilização da lista de resultados no menu principal*/
+.search-result-list {
+    /*Estilização da lista de resultados no menu principal*/
     width: 100%;
     height: 15% !important;
 }
 
-.sizeEmprestimo { /*ConfimaEmprestimo.blade.php, Devolução.blade.php, Reserva.blade.php*/
+.sizeEmprestimo {
+    /*ConfimaEmprestimo.blade.php, Devolução.blade.php, Reserva.blade.php*/
     width: 400px;
     padding: 20px;
 }
@@ -340,7 +354,8 @@ ul li {
     width: 800px;
 }
 
-.config-menu { /*AdminPanel.blade.php, Dias.blade.php*/
+.config-menu {
+    /*AdminPanel.blade.php, Dias.blade.php*/
     padding: 100px;
     padding-top: 20px;
     padding-bottom: 0px;
@@ -350,68 +365,93 @@ ul li {
 
 .ScrollStyle {
     width: 500px;
-    max-height:50%;
+    max-height: 50%;
     overflow-y: scroll;
 }
 
-.optionlista {/*Pquena configuração na table de usuarios na tela de admin*/
+.optionlista {
+    /*Pquena configuração na table de usuarios na tela de admin*/
     margin-top: 8px;
 }
 
-#lateral { /*Menu lateral na tela de admin*/
-	padding:51px;
-    
-	-moz-transition: all 0.5s ease;
-		-webkit-transition: all 0.5s ease;
-			-o-transition: all 0.5s ease;
-				transition: all 0.5s ease;
+#lateral {
+    /*Menu lateral na tela de admin*/
+    padding: 51px;
 
-	background:#444;
-	height:100%;
-	overflow:hidden;
-	width:370px; 
-	position:fixed;
-	top:0;
-	left:-370px;
+    -moz-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
+    background: #444;
+    height: 100%;
+    overflow: hidden;
+    width: 370px;
+    position: fixed;
+    top: 0;
+    left: -370px;
     color: #FFF;
-	}
-
-
-
-.menu-active{ /*Menulateralativado*/
-	overflow-y:scroll;
-	-moz-transform: translate(370px, 0);
-		-webkit-transform: translate(370px, 0);
-			-o-transform: translate(370px, 0);
-				transform: translate(370px, 0);
-/*	padding-right:0;*/
-    padding: 20px;
-    
 }
-.buttonadicionar{ /*Botão de adicionar usuário na tela de admin*/
+
+#lateralsenha {
+    /*Menu lateral para alteração de senha*/
+    padding: 51px;
+
+    -moz-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
+    background: #444;
+    height: 100%;
+    overflow: hidden;
+    width: 370px;
+    position: fixed;
+    top: 0;
+    left: -370px;
+    color: #FFF;
+}
+
+
+
+.menu-active {
+    /*Menu lateral ativado*/
+    overflow-y: scroll;
+    -moz-transform: translate(370px, 0);
+    -webkit-transform: translate(370px, 0);
+    -o-transform: translate(370px, 0);
+    transform: translate(370px, 0);
+    /*	padding-right:0;*/
+    padding: 20px;
+}
+
+.buttonadicionar {
+    /*Botão de adicionar usuário na tela de admin*/
     position: relative;
     margin-left: 73.2%;
-    
 }
-.topo{ 
-/*    Configuração do navbar no principal.blade.php*/
+
+.topo {
+    /* Configuração do navbar no principal.blade.php*/
     border-style: solid;
     border-width: 1px;
-    background-color: rgba(255,255,255,0.7) !important;
+    background-color: rgba(255, 255, 255, 0.7) !important;
 }
-.jumbo{ /*Configuração do jumbotron no DetailAluno(Livro).blade.php*/
-    background-color: rgba(40,40,55,0.5)!important;
+
+.jumbo {
+    /*Configuração do jumbotron no DetailAluno(Livro).blade.php*/
+    background-color: rgba(40, 40, 55, 0.5)!important;
     color: white !important;
 }
-.jumbo a{
+
+.jumbo a {
     color: white !important;
 }
-.formulario{
+
+.formulario {
     width: 300px;
     color: white;
     padding: 20px;
     height: 89%;
     background-color: #444;
 }
-
-

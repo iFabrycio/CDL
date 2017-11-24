@@ -33,13 +33,21 @@
                 lateral.classList.add('menu-active');
             }
         }
+        function senha() {
+            var lateral = document.querySelector('#lateralSenha');
+            if (lateral.classList.contains('menu-active')) {
+                lateral.classList.remove('menu-active');
+            } else {
+                lateral.classList.add('menu-active');
+            }
+        }
 
     </script>
 </head>
 
 <body>
 
-      <div class="nabr navbar-default">
+      <div class="navbar navbar-default">
         <div class="collapse navbar-collapse topo" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <a href="/home"> 
@@ -106,7 +114,7 @@
                             </form>
                         </li>
                         <li>
-                        <a href="/Alterar/senha">Alterar Senha</a>
+                        <a onclick="senha()">Alterar Senha</a>
                         </li>
                     </ul>
                 </li>
@@ -115,7 +123,32 @@
         </div>
     </div>
 
-
+<div id="lateralSenha">
+    <div class="boxpanel">
+        <h3>Alterar senha</h3>
+        <form  method="post" action="/Alterar/senha" class="form form-group">
+            {{csrf_field()}}
+        <label for="i_senha_antiga">
+            Senha atual
+            </label>
+            <input class="form-control" type="password" name="senha_antiga">
+            
+            <label for="i_senha_nova">
+            Nova senha
+            </label>
+            <input class="form-control" type="password" name="senha_nova"/>
+            
+            <label for="i_senha_nova_confirmation">
+            Confirme a senha
+            </label>
+            <input class="form-control" type="password" name="senha_nova_confirmation">
+           
+            <br/>
+            <input type="submit" value="Alterar senha" class="btn btn-primary">
+            <div class="btn btn-danger pull-right">Cancelar</div>
+        </form>
+    </div>
+    </div>
 
 
 

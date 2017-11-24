@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/home','MainController@index');
-Route::get('/RedirectToHT','MainController@RedirectToHT');
-Route::get('/lista/menu','MainController@ListaMenu');
-Route::get('/Historico','MainController@Historico');
-Route::get('/Reserva/{id}','MainController@Reserva');
-Route::post('/Reservado','MainController@ReservarLivro');
-Route::get('/Alterar/senha','MainController@Alterarsenha');
+Route::get('/home','MainController@index')->name('Index');
+Route::get('/RedirectToHT','MainController@RedirectToHT')->name('Hacktown');
+Route::get('/lista/menu','MainController@ListaMenu')->name('ListaMenu');
+Route::get('/Historico','MainController@Historico')->name('Historico');
+Route::get('/Reserva/{id}','MainController@Reserva')->name('Reserva');
+Route::post('/Reservado','MainController@ReservarLivro')->name('ReservarLivro');
+Route::post('/Alterar/senha','MainController@Alterarsenha')->name('AlterarSenha');
 Route::get('/Admin/painel','MainController@AdminView');
 
 //Auth::routes();

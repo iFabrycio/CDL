@@ -15,8 +15,12 @@ use DB;
 use Request;
 use App\Http\Requests\AlunoRequest;
 use App\Http\Requests\LivroRequest;
+use App\Http\Requests\SenhaRequest;
 use Carbon\Carbon;
 use Redirect;
+use Hash;
+use Auth;
+use Validator;
 
 
 use Session;
@@ -171,7 +175,23 @@ class MainController extends Controller
             'users' => $users,
             ]);
     }
-    public function Alterarsenha(){
-        return view('Content.Senha');
+    public function Alterarsenha(SenhaRequest $request){
+        
+        $input = $request -> all();
+        
+        if (!Hash::check($input['senha_antiga'],Auth::user()->password)){
+            Session::flash('mensagemError','Senha incorreta');
+            return redirect()
+                ->action('MainController@index');
+        }
+        $resultado = $request ->user()->fill([
+            'password'=> Hash::make($request->input('senha_nova'))
+        ])->save();
+        
+        if($resultado){
+            Session::flash('mensagem','Senha alterada com sucesso');
+            return redirect()
+                ->action('MainController@index');
+        }
     }
 }
